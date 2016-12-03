@@ -9,44 +9,41 @@ public class BookTest {
     private Book bookTwo = new Book("Book Two", "Author Two", "2017");
 
     @Test
-    public void shouldReturnFirstBookNameWhenCreated(){
-        assertEquals("Book One", bookOne.name);
+    public void shouldReturnBookNameWhenCreated(){
+        assertEquals("Book One", bookOne.getName());
+        assertEquals("Book Two", bookTwo.getName());
     }
 
     @Test
-    public void shouldReturnSecondBookNameWhenCreated() {
-        assertEquals("Book Two", bookTwo.name);
+    public void shouldReturnBookAuthorWhenCreated() {
+        assertEquals("Author One", bookOne.getAuthor());
+        assertEquals("Author Two", bookTwo.getAuthor());
     }
 
     @Test
-    public void shouldReturnFirstBookAuthorWhenCreated() {
-        assertEquals("Author One", bookOne.author);
+    public void shouldReturnBookYearPublishedWhenCreated() {
+        assertEquals("2016", bookOne.getYearPublished());
+        assertEquals("2017", bookTwo.getYearPublished());
     }
 
     @Test
-    public void shouldReturnSecondBookAuthorWhenCreated() {
-        assertEquals("Author Two", bookTwo.author);
-    }
-
-    @Test
-    public void shouldReturnFirstBookYearPublishedWhenCreated() {
-        assertEquals("2016", bookOne.yearPublished);
-    }
-
-    @Test
-    public void shouldReturnSecondBookYearPublishedWhenCreated() {
-        assertEquals("2017", bookTwo.yearPublished);
-    }
-
-    @Test
-    public void shouldReturnStringOfFirstBookDetails(){
+    public void shouldReturnStringOfBookDetails(){
         String expected = String.format("%-30s%-30s%-4s\n","Book One", "Author One", "2016");
         assertEquals(expected, bookOne.toString());
+
+        expected = String.format("%-30s%-30s%-4s\n","Book Two", "Author Two", "2017");
+        assertEquals(expected, bookTwo.toString());
     }
 
     @Test
-    public void shouldReturnStringOfSecondBookDetails() {
-        String expected = String.format("%-30s%-30s%-4s\n","Book Two", "Author Two", "2017");
-        assertEquals(expected, bookTwo.toString());
+    public void shouldReturnTrueWhenBookIsCheckedOut() {
+        bookOne.setBookIsCheckedOut(true);
+        assertTrue(bookOne.bookIsCheckedOut());
+    }
+
+    @Test
+    public void shouldReturnFalseWhenBookIsNotCheckedOut() {
+        bookOne.setBookIsCheckedOut(false);
+        assertFalse(bookOne.bookIsCheckedOut());
     }
 }
