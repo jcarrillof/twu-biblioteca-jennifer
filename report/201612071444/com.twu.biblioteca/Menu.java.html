@@ -1,0 +1,1576 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>Menu.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.twu.biblioteca;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.PrintStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Scanner;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Menu {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private PrintStream printStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_11'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Menu(PrintStream printStream){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_12'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.printStream = printStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_13'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String actionFromSelectedOption(String inputFromScanner, List&#60;Book&#62; booksInLibrary) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_16'/>
+16
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_16'>4</a>
+<span>
+1. actionFromSelectedOption : negated conditional &rarr; SURVIVED<br/>
+2. actionFromSelectedOption : negated conditional &rarr; SURVIVED<br/>
+3. actionFromSelectedOption : negated conditional &rarr; KILLED<br/>
+4. actionFromSelectedOption : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        switch (inputFromScanner){</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case &#34;1&#34;:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_18'/>
+18
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_18'>1</a>
+<span>
+1. actionFromSelectedOption : removed call to com/twu/biblioteca/Menu::printListAvailableBooks &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                printListAvailableBooks(booksInLibrary);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_19'/>
+19
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_19'>1</a>
+<span>
+1. actionFromSelectedOption : mutated return of Object value for com/twu/biblioteca/Menu::actionFromSelectedOption to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case &#34;2&#34;:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_21'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                String nameBookToCheckout = getNameBookFromInput();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_22'/>
+22
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_22'>1</a>
+<span>
+1. actionFromSelectedOption : mutated return of Object value for com/twu/biblioteca/Menu::actionFromSelectedOption to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return checkoutBook(nameBookToCheckout, booksInLibrary);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case &#34;3&#34;:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_24'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                String nameBookToReturn = getNameBookFromInput();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_25'/>
+25
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_25'>1</a>
+<span>
+1. actionFromSelectedOption : mutated return of Object value for com/twu/biblioteca/Menu::actionFromSelectedOption to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return returnBook(nameBookToReturn, booksInLibrary);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case &#34;0&#34;:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_27'>1</a>
+<span>
+1. actionFromSelectedOption : mutated return of Object value for com/twu/biblioteca/Menu::actionFromSelectedOption to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return quitFromLibrary();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            default:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_29'>1</a>
+<span>
+1. actionFromSelectedOption : mutated return of Object value for com/twu/biblioteca/Menu::actionFromSelectedOption to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return selectValidOption();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String getNameBookFromInput() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_34'/>
+34
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_34'>1</a>
+<span>
+1. getNameBookFromInput : removed call to java/io/PrintStream::println &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        System.out.println(&#34;Name of book: &#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_35'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        Scanner scanner = new Scanner(System.in);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_36'/>
+36
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_36'>1</a>
+<span>
+1. getNameBookFromInput : mutated return of Object value for com/twu/biblioteca/Menu::getNameBookFromInput to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return scanner.nextLine();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void printListAvailableBooks(List&#60;Book&#62; booksAvailableInLibrary){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_40'>1</a>
+<span>
+1. printListAvailableBooks : removed call to java/io/PrintStream::println &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        printStream.println(getStringListAvailableBooks(booksAvailableInLibrary));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_41'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getStringListAvailableBooks(List&#60;Book&#62; booksInLibrary){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_44'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String printFormat = &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_45'/>
+45
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_45'>1</a>
+<span>
+1. getStringListAvailableBooks : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (Book book : booksInLibrary) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_46'/>
+46
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_46'>1</a>
+<span>
+1. getStringListAvailableBooks : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (!book.bookIsCheckedOut()){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_47'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                printFormat += (book.toString() + &#34;\n&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_49'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_50'/>
+50
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_50'>1</a>
+<span>
+1. getStringListAvailableBooks : mutated return of Object value for com/twu/biblioteca/Menu::getStringListAvailableBooks to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return printFormat;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String checkoutBook(String nameBook, List&#60;Book&#62; booksInLibrary) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_54'>1</a>
+<span>
+1. checkoutBook : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (Book book : booksInLibrary) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_55'>2</a>
+<span>
+1. checkoutBook : negated conditional &rarr; KILLED<br/>
+2. checkoutBook : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if(book.getName().equals(nameBook) &#38;&#38; !book.bookIsCheckedOut()){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_56'>1</a>
+<span>
+1. checkoutBook : mutated return of Object value for com/twu/biblioteca/Menu::checkoutBook to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return &#34;Thank you! Enjoy the book&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_58'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_59'>1</a>
+<span>
+1. checkoutBook : mutated return of Object value for com/twu/biblioteca/Menu::checkoutBook to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;That book is not available&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String returnBook(String nameBook, List&#60;Book&#62; booksInLibrary) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_63'>1</a>
+<span>
+1. returnBook : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (Book book : booksInLibrary) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_64'>1</a>
+<span>
+1. returnBook : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (book.getName().equals(nameBook)){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_65'>1</a>
+<span>
+1. returnBook : mutated return of Object value for com/twu/biblioteca/Menu::returnBook to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return &#34;Thank you for returning the book&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_66'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_67'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_68'/>
+68
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_68'>1</a>
+<span>
+1. returnBook : mutated return of Object value for com/twu/biblioteca/Menu::returnBook to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;That is not a valid book to return&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String quitFromLibrary(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_72'>1</a>
+<span>
+1. quitFromLibrary : mutated return of Object value for com/twu/biblioteca/Menu::quitFromLibrary to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;Quit&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String selectValidOption(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_76'>1</a>
+<span>
+1. selectValidOption : mutated return of Object value for com/twu/biblioteca/Menu::selectValidOption to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;Select a valid option!&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_77'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_78'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getMenu() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_80'/>
+80
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_80'>1</a>
+<span>
+1. getMenu : mutated return of Object value for com/twu/biblioteca/Menu::getMenu to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return &#34;\n/***** Menu *****/\n&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_81'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                + &#34;1. List of books\n&#34; + &#34;2. Check-out books\n&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_82'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                + &#34;3. Return book\n&#34; + &#34;0. Quit\n&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_83'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                + &#34;\nSelect an option: &#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@782e439a_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>actionFromSelectedOption<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnOptionOneFromMenu(com.twu.biblioteca.MenuTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>actionFromSelectedOption<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>actionFromSelectedOption<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>actionFromSelectedOption<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldQuitWhenInputIsZero(com.twu.biblioteca.MenuTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_18'>18</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_18'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>actionFromSelectedOption<br/><b>Killed by : </b>none</span></span> removed call to com/twu/biblioteca/Menu::printListAvailableBooks &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>actionFromSelectedOption<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnOptionOneFromMenu(com.twu.biblioteca.MenuTest)</span></span> mutated return of Object value for com/twu/biblioteca/Menu::actionFromSelectedOption to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_22'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>actionFromSelectedOption<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/twu/biblioteca/Menu::actionFromSelectedOption to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_25'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>actionFromSelectedOption<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/twu/biblioteca/Menu::actionFromSelectedOption to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>actionFromSelectedOption<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldQuitWhenInputIsZero(com.twu.biblioteca.MenuTest)</span></span> mutated return of Object value for com/twu/biblioteca/Menu::actionFromSelectedOption to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>actionFromSelectedOption<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenOptionNotIncludedInMenu(com.twu.biblioteca.MenuTest)</span></span> mutated return of Object value for com/twu/biblioteca/Menu::actionFromSelectedOption to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_34'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNameBookFromInput<br/><b>Killed by : </b>none</span></span> removed call to java/io/PrintStream::println &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_36'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNameBookFromInput<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/twu/biblioteca/Menu::getNameBookFromInput to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>printListAvailableBooks<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldPrintListOfAvailableBooks(com.twu.biblioteca.MenuTest)</span></span> removed call to java/io/PrintStream::println &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_45'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getStringListAvailableBooks<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_46'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getStringListAvailableBooks<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_50'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getStringListAvailableBooks<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/twu/biblioteca/Menu::getStringListAvailableBooks to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkoutBook<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenBookExistsAndIsAvailable(com.twu.biblioteca.MenuTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkoutBook<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenBookDoesNotExist(com.twu.biblioteca.MenuTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>checkoutBook<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenBookExistsAndIsAvailable(com.twu.biblioteca.MenuTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkoutBook<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenBookExistsAndIsAvailable(com.twu.biblioteca.MenuTest)</span></span> mutated return of Object value for com/twu/biblioteca/Menu::checkoutBook to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkoutBook<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenBookDoesNotExist(com.twu.biblioteca.MenuTest)</span></span> mutated return of Object value for com/twu/biblioteca/Menu::checkoutBook to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>returnBook<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenSuccessfulReturn(com.twu.biblioteca.MenuTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>returnBook<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenUnsuccessfulReturn(com.twu.biblioteca.MenuTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>returnBook<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenSuccessfulReturn(com.twu.biblioteca.MenuTest)</span></span> mutated return of Object value for com/twu/biblioteca/Menu::returnBook to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_68'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>returnBook<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenUnsuccessfulReturn(com.twu.biblioteca.MenuTest)</span></span> mutated return of Object value for com/twu/biblioteca/Menu::returnBook to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>quitFromLibrary<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldQuitWhenInputIsZero(com.twu.biblioteca.MenuTest)</span></span> mutated return of Object value for com/twu/biblioteca/Menu::quitFromLibrary to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectValidOption<br/><b>Killed by : </b>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenOptionNotIncludedInMenu(com.twu.biblioteca.MenuTest)</span></span> mutated return of Object value for com/twu/biblioteca/Menu::selectValidOption to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@782e439a_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@782e439a_80'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMenu<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/twu/biblioteca/Menu::getMenu to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.twu.biblioteca.LibraryTest.shouldPrintMenu(com.twu.biblioteca.LibraryTest) (124 ms)</li><li>com.twu.biblioteca.MenuTest.shouldReturnOptionOneFromMenu(com.twu.biblioteca.MenuTest) (2 ms)</li><li>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenBookIsNotAvailable(com.twu.biblioteca.MenuTest) (2 ms)</li><li>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenBookExistsAndIsAvailable(com.twu.biblioteca.MenuTest) (1 ms)</li><li>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenBookDoesNotExist(com.twu.biblioteca.MenuTest) (1 ms)</li><li>com.twu.biblioteca.MenuTest.shouldPrintListOfAvailableBooks(com.twu.biblioteca.MenuTest) (2 ms)</li><li>com.twu.biblioteca.MenuTest.shouldQuitWhenInputIsZero(com.twu.biblioteca.MenuTest) (2 ms)</li><li>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenOptionNotIncludedInMenu(com.twu.biblioteca.MenuTest) (2 ms)</li><li>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenSuccessfulReturn(com.twu.biblioteca.MenuTest) (1 ms)</li><li>com.twu.biblioteca.MenuTest.shouldReturnMessageWhenUnsuccessfulReturn(com.twu.biblioteca.MenuTest) (3 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.9
+
+</body>
+</html>

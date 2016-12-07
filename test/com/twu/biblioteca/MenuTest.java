@@ -2,19 +2,19 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class MenuTest {
 
-    private Menu menu = new Menu();
+    private Menu menu;
     private List<Book> booksInLibrary = new ArrayList<>();
 
     @Before
     public void setUp() {
+        menu = new Menu(System.out);
+
         Book bookOne = new Book("Book One", "Author One", "2016");
         bookOne.setBookIsCheckedOut(false);
         booksInLibrary.add(bookOne);
@@ -28,8 +28,14 @@ public class MenuTest {
     public void shouldReturnOptionOneFromMenu() {
         String optionFromMenu = "1";
 
+        String expected = "";
+        for (Book book : booksInLibrary) {
+            if (!book.bookIsCheckedOut()){
+                expected += (book.bookDetails() + "\n");
+            }
+        }
         String optionSelectedFromMenu = menu.actionFromSelectedOption(optionFromMenu, booksInLibrary);
-        assertEquals("", optionSelectedFromMenu);
+        assertEquals(expected, optionSelectedFromMenu);
     }
 
     @Test
@@ -57,7 +63,7 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldReturnMessageWhenBookDoesNotExist() {
+    public void shouldReturnMessageWhenBookDoesNotExist(){
         String nameBook = "Book Five";
 
         String messageWhenCheckoutBook = menu.checkoutBook(nameBook, booksInLibrary);
@@ -86,12 +92,5 @@ public class MenuTest {
 
         String messageWhenReturnBook = menu.returnBook(nameBook, booksInLibrary);
         assertEquals("That is not a valid book to return", messageWhenReturnBook);
-    }
-
-    @Test
-    public void shouldReturnNameBookFromInputKeyboard() {
-        String inputName = "Book";
-
-        assertEquals(inputName, menu.nameBookFromInputKeyboard());
     }
 }

@@ -1,20 +1,27 @@
 package com.twu.biblioteca;
 
+import java.io.PrintStream;
 import java.util.List;
+import java.util.Scanner;
 
 public class Menu {
+
+    private PrintStream printStream;
+
+    Menu(PrintStream printStream){
+        this.printStream = printStream;
+    }
 
     public String actionFromSelectedOption(String inputFromScanner, List<Book> booksInLibrary) {
         switch (inputFromScanner){
             case "1":
-                printListAvailableBooks(booksInLibrary);
-                return "";
+                return getStringListAvailableBooks(booksInLibrary);
             case "2":
-                checkoutBook("Book One", booksInLibrary);
-                return "";
+                String nameBookToCheckout = getNameBookFromInput();
+                return checkoutBook(nameBookToCheckout, booksInLibrary);
             case "3":
-                returnBook("Book One", booksInLibrary);
-                return "";
+                String nameBookToReturn = getNameBookFromInput();
+                return returnBook(nameBookToReturn, booksInLibrary);
             case "0":
                 return quitFromLibrary();
             default:
@@ -22,15 +29,17 @@ public class Menu {
         }
     }
 
-    private void printListAvailableBooks(List<Book> booksAvailableInLibrary){
-        getStringListAvailableBooks(booksAvailableInLibrary);
+    private String getNameBookFromInput() {
+        System.out.println("Name of book: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 
-    private String getStringListAvailableBooks(List<Book> booksInLibrary){
+    public String getStringListAvailableBooks(List<Book> booksInLibrary){
         String printFormat = "";
         for (Book book : booksInLibrary) {
-            if (book.bookIsCheckedOut()){
-                printFormat += (book.toString() + "\n");
+            if (!book.bookIsCheckedOut()){
+                printFormat += (book.bookDetails() + "\n");
             }
         }
         return printFormat;
@@ -67,9 +76,5 @@ public class Menu {
                 + "1. List of books\n" + "2. Check-out books\n"
                 + "3. Return book\n" + "0. Quit\n"
                 + "\nSelect an option: ";
-    }
-
-    public String nameBookFromInputKeyboard() {
-        return null;
     }
 }

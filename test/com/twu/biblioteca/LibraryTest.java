@@ -29,7 +29,7 @@ public class LibraryTest {
     @Test
     public void shouldPrintMenu() {
         library.printMenu();
-        Menu menu = new Menu();
+        Menu menu = new Menu(printStream);
         verify(printStream).println(menu.getMenu());
     }
 }

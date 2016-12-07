@@ -1,10 +1,8 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 public class BookTest {
 
@@ -32,10 +30,10 @@ public class BookTest {
     @Test
     public void shouldReturnStringOfBookDetails(){
         String expected = String.format("%-30s%-30s%-4s\n","Book One", "Author One", "2016");
-        assertEquals(expected, bookOne.toString());
+        assertEquals(expected, bookOne.bookDetails());
 
         expected = String.format("%-30s%-30s%-4s\n","Book Two", "Author Two", "2017");
-        assertEquals(expected, bookTwo.toString());
+        assertEquals(expected, bookTwo.bookDetails());
     }
 
     @Test

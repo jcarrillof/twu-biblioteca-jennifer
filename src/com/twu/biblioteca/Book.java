@@ -25,7 +25,7 @@ public class Book {
         return yearPublished;
     }
 
-    public String toString(){
+    public String bookDetails(){
         return String.format("%-30s%-30s%-4s\n", name, author, yearPublished);
     }
 

@@ -8,11 +8,12 @@ import java.util.Scanner;
 public class Library {
 
     private List<Book> booksInLibrary = new ArrayList<>();
-    private Menu menu = new Menu();
+    private Menu menu;
     private PrintStream printStream;
 
     public Library(PrintStream printStream) {
         this.printStream = printStream;
+        menu = new Menu(printStream);
 
         Book bookOne = new Book("Book One", "Author One", "2016");
         bookOne.setBookIsCheckedOut(false);
