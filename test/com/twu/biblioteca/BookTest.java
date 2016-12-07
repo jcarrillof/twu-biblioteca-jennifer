@@ -1,7 +1,10 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
+import org.mockito.Mockito;
+
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class BookTest {
 

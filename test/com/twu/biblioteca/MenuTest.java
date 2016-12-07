@@ -88,4 +88,10 @@ public class MenuTest {
         assertEquals("That is not a valid book to return", messageWhenReturnBook);
     }
 
+    @Test
+    public void shouldReturnNameBookFromInputKeyboard() {
+        String inputName = "Book";
+
+        assertEquals(inputName, menu.nameBookFromInputKeyboard());
+    }
 }

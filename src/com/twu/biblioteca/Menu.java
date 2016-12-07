@@ -68,4 +68,8 @@ public class Menu {
                 + "3. Return book\n" + "0. Quit\n"
                 + "\nSelect an option: ";
     }
+
+    public String nameBookFromInputKeyboard() {
+        return null;
+    }
 }
