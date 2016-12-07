@@ -58,7 +58,6 @@ public class LibraryTest {
 
         String optionSelectedFromMenu = library.actionFromInputOption(optionFromMenu);
         assertEquals(expected, optionSelectedFromMenu);
-
     }
 
     @Test

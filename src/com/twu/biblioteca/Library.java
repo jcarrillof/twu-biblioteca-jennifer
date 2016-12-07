@@ -7,14 +7,14 @@ import java.util.Scanner;
 
 public class Library {
 
-    private List<Book> booksInLibrary = new ArrayList<>();
-    private Menu menu;
+    private List<Book> booksInLibrary;
+    private Menu menu = new Menu();
     private PrintStream printStream;
 
     public Library(PrintStream printStream) {
         this.printStream = printStream;
-        menu = new Menu();
 
+        booksInLibrary = new ArrayList<>();
         Book bookOne = new Book("Book One", "Author One", "2016");
         bookOne.setBookIsCheckedOut(false);
         booksInLibrary.add(bookOne);
@@ -67,6 +67,7 @@ public class Library {
     public String checkoutBook(String nameBook) {
         for (Book book : booksInLibrary) {
             if(book.getName().equals(nameBook) && !book.bookIsCheckedOut()){
+                book.setBookIsCheckedOut(true);
                 return "Thank you! Enjoy the book";
             }
         }
@@ -76,6 +77,7 @@ public class Library {
     public String returnBook(String nameBook) {
         for (Book book : booksInLibrary) {
             if (book.getName().equals(nameBook)){
+                book.setBookIsCheckedOut(false);
                 return "Thank you for returning the book";
             }
         }
