@@ -11,6 +11,7 @@ public class Book {
         this.name = name;
         this.author = author;
         this.yearPublished = yearPublished;
+        this.bookIsCheckedOut = true;
     }
 
     public String getName() {

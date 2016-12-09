@@ -29,7 +29,7 @@ public class Library {
     }
 
     public void printMenu(){
-        printStream.println(menu.getMenu());
+//        printStream.println(menu.getMenu());
     }
 
     public String readInputFromKeyboard(){
