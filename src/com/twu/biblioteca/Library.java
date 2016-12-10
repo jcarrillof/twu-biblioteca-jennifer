@@ -24,14 +24,6 @@ public class Library {
         booksInLibrary.add(bookTwo);
     }
 
-    public void printWelcomeMessage(){
-        printStream.println("Welcome to Library!");
-    }
-
-    public void printMenu(){
-//        printStream.println(menu.getMenu());
-    }
-
     public String readInputFromKeyboard(){
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();

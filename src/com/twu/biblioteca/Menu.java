@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.io.PrintStream;
+import java.util.Scanner;
 
 public class Menu {
 
@@ -30,5 +31,23 @@ public class Menu {
                 + "3. Return book\n"
                 + "0. Quit\n"
                 + "\nSelect an option: ";
+    }
+
+    public int numberOptionFromInputString(String inputString) {
+        int numberOption;
+        try {
+            numberOption = Integer.parseInt(inputString);
+            if(numberOption < 0 || numberOption > 3){
+                numberOption = -1;
+            }
+        }catch (NumberFormatException exception){
+            numberOption = -1;
+        }
+        return numberOption;
+    }
+
+    public String readInputFromKeyboard(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 }

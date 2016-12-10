@@ -34,19 +34,6 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldPrintWelcomeMessage() {
-        library.printWelcomeMessage();
-        verify(printStream).println("Welcome to Library!");
-    }
-
-    @Test
-    public void shouldPrintMenu() {
-        library.printMenu();
-        Menu menu = new Menu();
-//        verify(printStream).println(menu.getMenu());
-    }
-
-    @Test
     public void shouldReturnOptionOneFromMenu() {
         String optionFromMenu = "1";
         String expected = "";
