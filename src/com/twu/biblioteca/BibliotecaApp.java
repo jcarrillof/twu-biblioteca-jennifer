@@ -4,15 +4,21 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
 
-//        String resultAction;
-//        Library library = new Library(System.out);
-//        library.printWelcomeMessage();
-//
-//        do {
-//            library.printMenu();
-//            String optionFromInput = library.readInputFromKeyboard();
-//            resultAction = library.actionFromInputOption(optionFromInput);
-//            System.out.println(resultAction);
-//        }while (!resultAction.equals("Quit"));
+        String resultFromAction;
+        String nameBook = "";
+        Menu menu = new Menu();
+        menu.printWelcomeMessage();
+
+        do {
+            menu.printMenu();
+            String inputFromUser = menu.readInputFromKeyboard();
+            int optionNumber = menu.numberOptionFromInputString(inputFromUser);
+            if (optionNumber == MenuOptions.CHECKOUTBOOK.numberOption()
+                    || optionNumber == MenuOptions.RETURNBOOK.numberOption()){
+                nameBook = menu.getNameBookFromInput();
+            }
+            resultFromAction = menu.doActionFromOption(optionNumber, nameBook);
+            System.out.println(resultFromAction);
+        }while (!resultFromAction.equals("Quit"));
     }
 }

@@ -6,17 +6,14 @@ import java.util.Scanner;
 
 public class Library {
 
-    private List<Book> booksInLibrary;
+    public List<Book> booksInLibrary;
 
     public Library(){
 
         booksInLibrary = new ArrayList<>();
-        Book bookOne = new Book("Book One", "Author One", "2016");
-        bookOne.setBookIsCheckedOut(false);
+        Book bookOne = new Book("Harry Potter", "J.K. Rowling", 1998);
         booksInLibrary.add(bookOne);
-
-        Book bookTwo = new Book("Book Two", "Author Two", "2017");
-        bookTwo.setBookIsCheckedOut(true);
+        Book bookTwo = new Book("The Hobbit", "Tolkien", 2003);
         booksInLibrary.add(bookTwo);
     }
 
@@ -55,17 +52,11 @@ public class Library {
         return "That is not a valid book to return";
     }
 
-    private String getNameBookFromInput() {
-        System.out.println("Name of book: ");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+    public String checkoutBook(String nameBook) {
+        return messageFromCheckoutBook(nameBook);
     }
 
-    public String checkoutBook() {
-        return messageFromCheckoutBook(getNameBookFromInput());
-    }
-
-    public String returnBook() {
-        return messageFromReturnBook(getNameBookFromInput());
+    public String returnBook(String nameBook) {
+        return messageFromReturnBook(nameBook);
     }
 }

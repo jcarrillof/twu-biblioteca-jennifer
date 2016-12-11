@@ -9,7 +9,7 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnMessageWhenBookExistsAndIsAvailable() {
-        String nameBook = "Book One";
+        String nameBook = library.booksInLibrary.get(0).getName();
 
         String messageWhenCheckoutBook = library.messageFromCheckoutBook(nameBook);
         assertEquals("Thank you! Enjoy the book", messageWhenCheckoutBook);
@@ -25,7 +25,9 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnMessageWhenBookIsNotAvailable(){
-        String nameBook = "Book Two";
+        Book book = library.booksInLibrary.get(1);
+        book.setBookIsCheckedOut(true);
+        String nameBook = book.getName();
 
         String messageWhenCheckoutBook = library.messageFromCheckoutBook(nameBook);
         assertEquals("That book is not available", messageWhenCheckoutBook);
@@ -33,7 +35,7 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnMessageWhenSuccessfulReturn() {
-        String nameBook = "Book Two";
+        String nameBook = library.booksInLibrary.get(0).getName();
 
         String messageWhenReturnBook = library.messageFromReturnBook(nameBook);
         assertEquals("Thank you for returning the book", messageWhenReturnBook);

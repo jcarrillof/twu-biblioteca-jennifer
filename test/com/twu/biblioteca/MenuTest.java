@@ -20,8 +20,8 @@ public class MenuTest {
     @Test
     public void shouldPrintMenu() {
         String menuString = "\n/***** Menu *****/\n"
-                + "1. List of books\n" + "2. Check-out books\n"
-                + "3. Return book\n" + "0. Quit\n"
+                + MenuOptions.LISTOFBOOKS + MenuOptions.CHECKOUTBOOK
+                + MenuOptions.RETURNBOOK + MenuOptions.QUIT
                 + "\nSelect an option: ";
         PrintStream printStream = mock(PrintStream.class);
         Menu menu = new Menu(printStream);
@@ -56,16 +56,18 @@ public class MenuTest {
     @Test
     public void shouldReturnBookListWhenGivenOptionOne() {
         int optionFromMenu = 1;
+        String nameBook = "";
         Menu menu = new Menu();
         Library library = new Library();
         String booksAvailableExpected = library.listAvailableBooks();
-        assertEquals(booksAvailableExpected, menu.doActionFromOption(optionFromMenu));
+        assertEquals(booksAvailableExpected, menu.doActionFromOption(optionFromMenu, nameBook));
     }
 
     @Test
     public void shouldReturnQuitWhenGivenOptionZero() {
         int optionFromMenu = 0;
+        String nameBook = "";
         Menu menu = new Menu();
-        assertEquals("Quit", menu.doActionFromOption(optionFromMenu));
+        assertEquals("Quit", menu.doActionFromOption(optionFromMenu, nameBook));
     }
 }

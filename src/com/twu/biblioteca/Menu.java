@@ -11,7 +11,6 @@ public class Menu {
 
     public Menu(){
         printStream = System.out;
-        listOfActionsForEachOption();
     }
 
     public Menu(PrintStream printStream) {
@@ -29,10 +28,10 @@ public class Menu {
 
     private String getMenuString() {
         return "\n/***** Menu *****/\n"
-                + "1. List of books\n"
-                + "2. Check-out books\n"
-                + "3. Return book\n"
-                + "0. Quit\n"
+                + MenuOptions.LISTOFBOOKS
+                + MenuOptions.CHECKOUTBOOK
+                + MenuOptions.RETURNBOOK
+                + MenuOptions.QUIT
                 + "\nSelect an option: ";
     }
 
@@ -54,25 +53,32 @@ public class Menu {
         return scanner.nextLine();
     }
 
-    public String doActionFromOption(int optionFromMenu) {
+    public String doActionFromOption(int optionFromMenu, String nameBookWhenNeeded) {
+        listOfActionsForEachOption(nameBookWhenNeeded);
         return actionsFromOptions.get(optionFromMenu);
     }
 
-    private void listOfActionsForEachOption() {
+    public String getNameBookFromInput() {
+        System.out.println("Name of book: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    private void listOfActionsForEachOption(String nameBook) {
         Library library = new Library();
         actionsFromOptions = new HashMap<>();
-        actionsFromOptions.put(1, library.listAvailableBooks());
-        actionsFromOptions.put(2, library.checkoutBook());
-        actionsFromOptions.put(3, library.returnBook());
-        actionsFromOptions.put(0, messageWhenQuitLibrary());
-        actionsFromOptions.put(-1, messageToSelectValidOption());
+        actionsFromOptions.put(MenuOptions.LISTOFBOOKS.numberOption(), library.listAvailableBooks());
+        actionsFromOptions.put(MenuOptions.CHECKOUTBOOK.numberOption(), library.checkoutBook(nameBook));
+        actionsFromOptions.put(MenuOptions.RETURNBOOK.numberOption(), library.returnBook(nameBook));
+        actionsFromOptions.put(MenuOptions.QUIT.numberOption(), messageWhenQuitLibrary());
+        actionsFromOptions.put(MenuOptions.NOTVALIDOPTION.numberOption(), messageToSelectValidOption());
     }
 
     private String messageWhenQuitLibrary(){
-        return "Quit";
+        return MenuOptions.QUIT.nameOption();
     }
 
     private String messageToSelectValidOption(){
-        return "Select a valid option!";
+        return MenuOptions.NOTVALIDOPTION.nameOption();
     }
 }
