@@ -54,9 +54,18 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldReturnStringOneFromInputKeyboard() {
-        String expected = "1";
+    public void shouldReturnBookListWhenGivenOptionOne() {
+        int optionFromMenu = 1;
         Menu menu = new Menu();
-        assertEquals(expected, menu.readInputFromKeyboard());
+        Library library = new Library();
+        String booksAvailableExpected = library.listAvailableBooks();
+        assertEquals(booksAvailableExpected, menu.doActionFromOption(optionFromMenu));
+    }
+
+    @Test
+    public void shouldReturnQuitWhenGivenOptionZero() {
+        int optionFromMenu = 0;
+        Menu menu = new Menu();
+        assertEquals("Quit", menu.doActionFromOption(optionFromMenu));
     }
 }

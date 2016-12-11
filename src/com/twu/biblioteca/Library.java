@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,11 +7,8 @@ import java.util.Scanner;
 public class Library {
 
     private List<Book> booksInLibrary;
-    private Menu menu = new Menu();
-    private PrintStream printStream;
 
-    public Library(PrintStream printStream) {
-        this.printStream = printStream;
+    public Library(){
 
         booksInLibrary = new ArrayList<>();
         Book bookOne = new Book("Book One", "Author One", "2016");
@@ -29,24 +25,7 @@ public class Library {
         return scanner.nextLine();
     }
 
-    public String actionFromInputOption(String inputSelectedOption){
-        switch (inputSelectedOption){
-            case "1":
-                return getStringListAvailableBooks();
-            case "2":
-                String nameBookToCheckout = getNameBookFromInput();
-                return checkoutBook(nameBookToCheckout);
-            case "3":
-                String nameBookToReturn = getNameBookFromInput();
-                return returnBook(nameBookToReturn);
-            case "0":
-                return quitFromLibrary();
-            default:
-                return selectValidOption();
-        }
-    }
-
-    public String getStringListAvailableBooks(){
+    public String listAvailableBooks(){
         String printFormat = "";
         for (Book book : booksInLibrary) {
             if (!book.bookIsCheckedOut()){
@@ -56,7 +35,7 @@ public class Library {
         return printFormat;
     }
 
-    public String checkoutBook(String nameBook) {
+    public String messageFromCheckoutBook(String nameBook) {
         for (Book book : booksInLibrary) {
             if(book.getName().equals(nameBook) && !book.bookIsCheckedOut()){
                 book.setBookIsCheckedOut(true);
@@ -66,7 +45,7 @@ public class Library {
         return "That book is not available";
     }
 
-    public String returnBook(String nameBook) {
+    public String messageFromReturnBook(String nameBook) {
         for (Book book : booksInLibrary) {
             if (book.getName().equals(nameBook)){
                 book.setBookIsCheckedOut(false);
@@ -76,17 +55,17 @@ public class Library {
         return "That is not a valid book to return";
     }
 
-    private String quitFromLibrary(){
-        return "Quit";
-    }
-
-    private String selectValidOption(){
-        return "Select a valid option!";
-    }
-
     private String getNameBookFromInput() {
         System.out.println("Name of book: ");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
+    }
+
+    public String checkoutBook() {
+        return messageFromCheckoutBook(getNameBookFromInput());
+    }
+
+    public String returnBook() {
+        return messageFromReturnBook(getNameBookFromInput());
     }
 }

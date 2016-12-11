@@ -1,14 +1,17 @@
 package com.twu.biblioteca;
 
 import java.io.PrintStream;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Menu {
 
     private PrintStream printStream;
+    private HashMap<Integer, String> actionsFromOptions;
 
     public Menu(){
         printStream = System.out;
+        listOfActionsForEachOption();
     }
 
     public Menu(PrintStream printStream) {
@@ -49,5 +52,27 @@ public class Menu {
     public String readInputFromKeyboard(){
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
+    }
+
+    public String doActionFromOption(int optionFromMenu) {
+        return actionsFromOptions.get(optionFromMenu);
+    }
+
+    private void listOfActionsForEachOption() {
+        Library library = new Library();
+        actionsFromOptions = new HashMap<>();
+        actionsFromOptions.put(1, library.listAvailableBooks());
+        actionsFromOptions.put(2, library.checkoutBook());
+        actionsFromOptions.put(3, library.returnBook());
+        actionsFromOptions.put(0, messageWhenQuitLibrary());
+        actionsFromOptions.put(-1, messageToSelectValidOption());
+    }
+
+    private String messageWhenQuitLibrary(){
+        return "Quit";
+    }
+
+    private String messageToSelectValidOption(){
+        return "Select a valid option!";
     }
 }
