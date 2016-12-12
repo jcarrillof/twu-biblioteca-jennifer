@@ -29,6 +29,11 @@ public class BookTest {
     }
 
     @Test
+    public void shouldSetCheckoutFalseWhenBookIsCreated() {
+        assertFalse(bookOne.bookIsCheckedOut());
+    }
+
+    @Test
     public void shouldReturnTrueWhenBookIsCheckedOut() {
         bookOne.setBookIsCheckedOut(true);
         assertTrue(bookOne.bookIsCheckedOut());
