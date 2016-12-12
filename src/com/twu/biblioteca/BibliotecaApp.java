@@ -19,6 +19,6 @@ public class BibliotecaApp {
             }
             resultFromAction = menu.doActionFromOption(optionNumber, nameBook);
             System.out.println(resultFromAction);
-        }while (!resultFromAction.equals("Quit"));
+        }while (!resultFromAction.equals(MenuOptions.QUIT.nameOption()));
     }
 }

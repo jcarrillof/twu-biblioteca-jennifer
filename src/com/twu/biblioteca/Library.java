@@ -6,6 +6,10 @@ import java.util.Scanner;
 
 public class Library{
 
+    private final String messageUnsuccessfulCheckout = "That book is not available";
+    private final String messageSuccessfulReturn = "Thank you for returning the book";
+    private final String messageUnsuccessfulReturn = "That is not a valid book to return";
+    private final String messageSuccessfulCheckout = "Thank you! Enjoy the book";
     public List<Book> booksInLibrary = new ArrayList<>();
 
     public Library(){
@@ -35,9 +39,9 @@ public class Library{
     public String messageFromCheckoutBook(String nameBook) {
         Book bookResult = changeBookStatusWhenCheckout(nameBook);
         if (bookResult != null && bookResult.bookIsCheckedOut()){
-            return "Thank you! Enjoy the book";
+            return messageSuccessfulCheckout;
         }
-        return "That book is not available";
+        return messageUnsuccessfulCheckout;
     }
 
     private Book changeBookStatusWhenCheckout(String nameBook) {
@@ -53,9 +57,9 @@ public class Library{
     public String messageFromReturnBook(String nameBook) {
         Book bookResult = changeBookStatusWhenReturn(nameBook);
         if (bookResult != null && !bookResult.bookIsCheckedOut()){
-            return "Thank you for returning the book";
+            return messageSuccessfulReturn;
         }
-        return "That is not a valid book to return";
+        return messageUnsuccessfulReturn;
     }
 
     private Book changeBookStatusWhenReturn(String nameBook) {
@@ -82,11 +86,5 @@ public class Library{
 
     public String messageToSelectValidOption(){
         return MenuOptions.NOTVALIDOPTION.nameOption();
-    }
-
-    public void printStatus(){
-        for (Book book : booksInLibrary) {
-            System.out.println(book.getAuthor() + "  " + book.bookIsCheckedOut());
-        }
     }
 }
