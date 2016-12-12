@@ -20,8 +20,8 @@ public class MenuTest {
     @Test
     public void shouldPrintMenu() {
         String menuString = "\n/***** Menu *****/\n"
-                + MenuOptions.LISTOFBOOKS + MenuOptions.CHECKOUTBOOK
-                + MenuOptions.RETURNBOOK + MenuOptions.QUIT
+                + MenuOptions.LISTOFBOOKS.toString() + MenuOptions.CHECKOUTBOOK.toString()
+                + MenuOptions.RETURNBOOK.toString() + MenuOptions.QUIT.toString()
                 + "\nSelect an option: ";
         PrintStream printStream = mock(PrintStream.class);
         Menu menu = new Menu(printStream);

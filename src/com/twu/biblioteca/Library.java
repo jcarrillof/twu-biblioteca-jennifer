@@ -6,10 +6,6 @@ import java.util.Scanner;
 
 public class Library{
 
-    private final String messageUnsuccessfulCheckout = "That book is not available";
-    private final String messageSuccessfulReturn = "Thank you for returning the book";
-    private final String messageUnsuccessfulReturn = "That is not a valid book to return";
-    private final String messageSuccessfulCheckout = "Thank you! Enjoy the book";
     public List<Book> booksInLibrary = new ArrayList<>();
 
     public Library(){
@@ -30,18 +26,18 @@ public class Library{
         String printFormat = "\n";
         for (Book book : booksInLibrary) {
             if (!book.bookIsCheckedOut()){
-                printFormat += (book.bookDetails() + "\n");
+                printFormat += book.bookDetails();
             }
         }
         return printFormat;
     }
 
-    public String messageFromCheckoutBook(String nameBook) {
+    private String messageFromCheckoutBook(String nameBook) {
         Book bookResult = changeBookStatusWhenCheckout(nameBook);
         if (bookResult != null && bookResult.bookIsCheckedOut()){
-            return messageSuccessfulCheckout;
+            return Messages.SUCCESSFULCHECKOUT.toString();
         }
-        return messageUnsuccessfulCheckout;
+        return Messages.UNSUCCESSFULCHECKOUT.toString();
     }
 
     private Book changeBookStatusWhenCheckout(String nameBook) {
@@ -54,12 +50,12 @@ public class Library{
         return null;
     }
 
-    public String messageFromReturnBook(String nameBook) {
+    private String messageFromReturnBook(String nameBook) {
         Book bookResult = changeBookStatusWhenReturn(nameBook);
         if (bookResult != null && !bookResult.bookIsCheckedOut()){
-            return messageSuccessfulReturn;
+            return Messages.SUCCESSFULRETURN.toString();
         }
-        return messageUnsuccessfulReturn;
+        return Messages.UNSUCCESSFULRETURN.toString();
     }
 
     private Book changeBookStatusWhenReturn(String nameBook) {

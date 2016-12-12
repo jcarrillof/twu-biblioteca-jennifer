@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Menu {
 
+    private final int maximumNumberOption = 3;
+    private final int minimumNumberOption = 0;
     private PrintStream printStream;
     private HashMap<Integer, ServiceLibrary> actionsFromOptions;
     private Library library;
@@ -31,10 +33,10 @@ public class Menu {
 
     private String getMenuString() {
         return "\n/***** Menu *****/\n"
-                + MenuOptions.LISTOFBOOKS
-                + MenuOptions.CHECKOUTBOOK
-                + MenuOptions.RETURNBOOK
-                + MenuOptions.QUIT
+                + MenuOptions.LISTOFBOOKS.toString()
+                + MenuOptions.CHECKOUTBOOK.toString()
+                + MenuOptions.RETURNBOOK.toString()
+                + MenuOptions.QUIT.toString()
                 + "\nSelect an option: ";
     }
 
@@ -42,7 +44,7 @@ public class Menu {
         int numberOption;
         try {
             numberOption = Integer.parseInt(inputString);
-            if(numberOption < 0 || numberOption > 3){
+            if(numberOption < minimumNumberOption || numberOption > maximumNumberOption){
                 numberOption = -1;
             }
         }catch (NumberFormatException exception){
