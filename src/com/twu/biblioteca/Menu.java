@@ -7,10 +7,13 @@ import java.util.Scanner;
 public class Menu {
 
     private PrintStream printStream;
-    private HashMap<Integer, String> actionsFromOptions;
+    private HashMap<Integer, ServiceLibrary> actionsFromOptions;
+    private Library library;
 
     public Menu(){
         printStream = System.out;
+        actionsFromOptions = new HashMap<>();
+        library = new Library();
     }
 
     public Menu(PrintStream printStream) {
@@ -54,8 +57,8 @@ public class Menu {
     }
 
     public String doActionFromOption(int optionFromMenu, String nameBookWhenNeeded) {
-        listOfActionsForEachOption(nameBookWhenNeeded);
-        return actionsFromOptions.get(optionFromMenu);
+        listOfActionsForEachOption();
+        return actionsFromOptions.get(optionFromMenu).serviceFromLibraryGivenOption(nameBookWhenNeeded);
     }
 
     public String getNameBookFromInput() {
@@ -64,21 +67,36 @@ public class Menu {
         return scanner.nextLine();
     }
 
-    private void listOfActionsForEachOption(String nameBook) {
-        Library library = new Library();
-        actionsFromOptions = new HashMap<>();
-        actionsFromOptions.put(MenuOptions.LISTOFBOOKS.numberOption(), library.listAvailableBooks());
-        actionsFromOptions.put(MenuOptions.CHECKOUTBOOK.numberOption(), library.checkoutBook(nameBook));
-        actionsFromOptions.put(MenuOptions.RETURNBOOK.numberOption(), library.returnBook(nameBook));
-        actionsFromOptions.put(MenuOptions.QUIT.numberOption(), messageWhenQuitLibrary());
-        actionsFromOptions.put(MenuOptions.NOTVALIDOPTION.numberOption(), messageToSelectValidOption());
-    }
-
-    private String messageWhenQuitLibrary(){
-        return MenuOptions.QUIT.nameOption();
-    }
-
-    private String messageToSelectValidOption(){
-        return MenuOptions.NOTVALIDOPTION.nameOption();
+    private void listOfActionsForEachOption() {
+        actionsFromOptions.put(MenuOptions.LISTOFBOOKS.numberOption(), new ServiceLibrary() {
+            @Override
+            public String serviceFromLibraryGivenOption(String nameBook) {
+                return library.listAvailableBooks();
+            }
+        });
+        actionsFromOptions.put(MenuOptions.CHECKOUTBOOK.numberOption(), new ServiceLibrary() {
+            @Override
+            public String serviceFromLibraryGivenOption(String nameBook) {
+                return library.checkoutBook(nameBook);
+            }
+        });
+        actionsFromOptions.put(MenuOptions.RETURNBOOK.numberOption(), new ServiceLibrary() {
+            @Override
+            public String serviceFromLibraryGivenOption(String nameBook) {
+                return library.returnBook(nameBook);
+            }
+        });
+        actionsFromOptions.put(MenuOptions.QUIT.numberOption(), new ServiceLibrary() {
+            @Override
+            public String serviceFromLibraryGivenOption(String nameBook) {
+                return library.messageWhenQuitLibrary();
+            }
+        });
+        actionsFromOptions.put(MenuOptions.NOTVALIDOPTION.numberOption(), new ServiceLibrary() {
+            @Override
+            public String serviceFromLibraryGivenOption(String nameBook) {
+                return library.messageToSelectValidOption();
+            }
+        });
     }
 }
