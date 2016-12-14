@@ -16,8 +16,8 @@ public class LibraryTest {
         List<Book> listBooks = library.booksInLibrary;
         String expected = "\n";
         for (Book book : listBooks) {
-            if (!book.bookIsCheckedOut()){
-                expected += book.bookDetails();
+            if (!book.itemIsCheckedOut()){
+                expected += book.itemDetails();
             }
         }
         assertEquals(expected, library.listAvailableBooks());
@@ -40,7 +40,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnMessageWhenBookIsNotAvailable(){
         Book book = library.booksInLibrary.get(1);
-        book.setBookIsCheckedOut(true);
+        book.setItemIsCheckedOut(true);
         String nameBook = book.getName();
         String messageWhenCheckoutBook = library.checkoutBook(nameBook);
         assertEquals("That book is not available", messageWhenCheckoutBook);

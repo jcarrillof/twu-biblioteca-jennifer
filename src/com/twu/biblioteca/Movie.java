@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Movie {
+public class Movie extends Item{
 
     private String name;
     private int year;
@@ -28,6 +28,7 @@ public class Movie {
         this.rating = 0;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -44,11 +45,6 @@ public class Movie {
         return rating;
     }
 
-    public String movieDetails() {
-        String ratingOutput = outputStringRating();
-        return String.format("%-30s%-30s%-10s%-10s\n", name, director, year, ratingOutput);
-    }
-
     private String outputStringRating() {
         String ratingOutput;
         if(rating == 0){
@@ -57,5 +53,11 @@ public class Movie {
             ratingOutput = String.valueOf(rating);
         }
         return ratingOutput;
+    }
+
+    @Override
+    public String itemDetails() {
+        String ratingOutput = outputStringRating();
+        return String.format("%-30s%-30s%-10s%-10s\n", name, director, year, ratingOutput);
     }
 }

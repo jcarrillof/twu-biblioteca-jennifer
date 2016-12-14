@@ -25,8 +25,8 @@ public class Library{
     public String listAvailableBooks(){
         String printFormat = "\n";
         for (Book book : booksInLibrary) {
-            if (!book.bookIsCheckedOut()){
-                printFormat += book.bookDetails();
+            if (!book.itemIsCheckedOut()){
+                printFormat += book.itemDetails();
             }
         }
         return printFormat;
@@ -34,7 +34,7 @@ public class Library{
 
     private String messageFromCheckoutBook(String nameBook) {
         Book bookResult = changeBookStatusWhenCheckout(nameBook);
-        if (bookResult != null && bookResult.bookIsCheckedOut()){
+        if (bookResult != null && bookResult.itemIsCheckedOut()){
             return Messages.SUCCESSFULCHECKOUT.toString();
         }
         return Messages.UNSUCCESSFULCHECKOUT.toString();
@@ -42,8 +42,8 @@ public class Library{
 
     private Book changeBookStatusWhenCheckout(String nameBook) {
         for (Book book : booksInLibrary) {
-            if(book.getName().equals(nameBook) && !book.bookIsCheckedOut()){
-                book.setBookIsCheckedOut(true);
+            if(book.getName().equals(nameBook) && !book.itemIsCheckedOut()){
+                book.setItemIsCheckedOut(true);
                 return book;
             }
         }
@@ -52,7 +52,7 @@ public class Library{
 
     private String messageFromReturnBook(String nameBook) {
         Book bookResult = changeBookStatusWhenReturn(nameBook);
-        if (bookResult != null && !bookResult.bookIsCheckedOut()){
+        if (bookResult != null && !bookResult.itemIsCheckedOut()){
             return Messages.SUCCESSFULRETURN.toString();
         }
         return Messages.UNSUCCESSFULRETURN.toString();
@@ -61,7 +61,7 @@ public class Library{
     private Book changeBookStatusWhenReturn(String nameBook) {
         for (Book book : booksInLibrary) {
             if (book.getName().equals(nameBook)) {
-                book.setBookIsCheckedOut(false);
+                book.setItemIsCheckedOut(false);
                 return book;
             }
         }
