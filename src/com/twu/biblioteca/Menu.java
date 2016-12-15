@@ -33,9 +33,9 @@ public class Menu {
 
     private String getMenuString() {
         return "\n/***** Menu *****/\n"
-                + MenuOptions.LISTOFBOOKS.toString()
-                + MenuOptions.CHECKOUTBOOK.toString()
-                + MenuOptions.RETURNBOOK.toString()
+                + MenuOptions.LIST_OF_BOOKS.toString()
+                + MenuOptions.CHECKOUT_BOOK.toString()
+                + MenuOptions.RETURN_BOOK.toString()
                 + MenuOptions.QUIT.toString()
                 + "\nSelect an option: ";
     }
@@ -70,19 +70,19 @@ public class Menu {
     }
 
     private void listOfActionsForEachOption() {
-        actionsFromOptions.put(MenuOptions.LISTOFBOOKS.numberOption(), new ServiceLibrary() {
+        actionsFromOptions.put(MenuOptions.LIST_OF_BOOKS.numberOption(), new ServiceLibrary() {
             @Override
             public String serviceFromLibraryGivenOption(String nameBook) {
                 return library.listAvailableBooks();
             }
         });
-        actionsFromOptions.put(MenuOptions.CHECKOUTBOOK.numberOption(), new ServiceLibrary() {
+        actionsFromOptions.put(MenuOptions.CHECKOUT_BOOK.numberOption(), new ServiceLibrary() {
             @Override
             public String serviceFromLibraryGivenOption(String nameBook) {
                 return library.checkoutBook(nameBook);
             }
         });
-        actionsFromOptions.put(MenuOptions.RETURNBOOK.numberOption(), new ServiceLibrary() {
+        actionsFromOptions.put(MenuOptions.RETURN_BOOK.numberOption(), new ServiceLibrary() {
             @Override
             public String serviceFromLibraryGivenOption(String nameBook) {
                 return library.returnBook(nameBook);
@@ -94,7 +94,7 @@ public class Menu {
                 return library.messageWhenQuitLibrary();
             }
         });
-        actionsFromOptions.put(MenuOptions.NOTVALIDOPTION.numberOption(), new ServiceLibrary() {
+        actionsFromOptions.put(MenuOptions.NOT_VALID_OPTION.numberOption(), new ServiceLibrary() {
             @Override
             public String serviceFromLibraryGivenOption(String nameBook) {
                 return library.messageToSelectValidOption();

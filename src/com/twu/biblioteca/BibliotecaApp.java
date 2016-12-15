@@ -13,8 +13,8 @@ public class BibliotecaApp {
             menu.printMenu();
             String inputFromUser = menu.readInputFromKeyboard();
             int optionNumber = menu.numberOptionFromInputString(inputFromUser);
-            if (optionNumber == MenuOptions.CHECKOUTBOOK.numberOption()
-                    || optionNumber == MenuOptions.RETURNBOOK.numberOption()){
+            if (optionNumber == MenuOptions.CHECKOUT_BOOK.numberOption()
+                    || optionNumber == MenuOptions.RETURN_BOOK.numberOption()){
                 nameBook = menu.getNameBookFromInput();
             }
             resultFromAction = menu.doActionFromOption(optionNumber, nameBook);

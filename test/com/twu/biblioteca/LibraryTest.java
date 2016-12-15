@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -16,11 +15,23 @@ public class LibraryTest {
         List<Book> listBooks = library.booksInLibrary;
         String expected = "\n";
         for (Book book : listBooks) {
-            if (!book.itemIsCheckedOut()){
-                expected += book.itemDetails();
+            if (!book.isBookCheckout()){
+                expected += book.bookDetails();
             }
         }
         assertEquals(expected, library.listAvailableBooks());
+    }
+
+    @Test
+    public void shouldReturnStringOfListOfMoviesAvailable() {
+        List<Movie> listMovies = library.moviesInLibrary;
+        String expected = "\n";
+        for (Movie movie : listMovies) {
+            if (!movie.isMovieCheckout()){
+                expected += movie.movieDetails();
+            }
+        }
+        assertEquals(expected, library.listAvailableMovies());
     }
 
     @Test
@@ -40,10 +51,33 @@ public class LibraryTest {
     @Test
     public void shouldReturnMessageWhenBookIsNotAvailable(){
         Book book = library.booksInLibrary.get(1);
-        book.setItemIsCheckedOut(true);
+        book.setBookIsCheckedOut(true);
         String nameBook = book.getName();
         String messageWhenCheckoutBook = library.checkoutBook(nameBook);
         assertEquals("That book is not available", messageWhenCheckoutBook);
+    }
+
+    @Test
+    public void shouldReturnMessageWhenMovieExistsAndIsAvailable() {
+        String nameMovie = library.moviesInLibrary.get(0).getName();
+        String messageWhenCheckoutMovie = library.checkoutMovie(nameMovie);
+        assertEquals("Thank you! Enjoy the movie", messageWhenCheckoutMovie);
+    }
+
+    @Test
+    public void shouldReturnMessageWhenMovieDoesNotExist() {
+        String nameMovie = "Movie Five";
+        String messageWhenCheckoutMovie = library.checkoutMovie(nameMovie);
+        assertEquals("That movie is not available", messageWhenCheckoutMovie);
+    }
+
+    @Test
+    public void shouldReturnMessageWhenMovieIsNotAvailable(){
+        Movie movie = library.moviesInLibrary.get(1);
+        movie.setMovieIsCheckedOut(true);
+        String nameMovie = movie.getName();
+        String messageWhenCheckoutMovie = library.checkoutMovie(nameMovie);
+        assertEquals("That movie is not available", messageWhenCheckoutMovie);
     }
 
     @Test

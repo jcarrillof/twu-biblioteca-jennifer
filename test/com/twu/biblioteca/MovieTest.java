@@ -57,12 +57,34 @@ public class MovieTest {
     @Test
     public void shouldReturnRatingInStringOfMovieDetailsWhenRated(){
         String expected = String.format("%-30s%-30s%-10s%-10s\n","Movie One", "Director One", 2014, 5);
-        assertEquals(expected, movie.itemDetails());
+        assertEquals(expected, movie.movieDetails());
     }
 
     @Test
     public void shouldReturnUnratedInStringOfMovieDetailsWhenNoRated() {
         String expected = String.format("%-30s%-30s%-10s%-10s\n","Movie Two", "Director Two", 1998, "unrated");
-        assertEquals(expected, movieNoRated.itemDetails());
+        assertEquals(expected, movieNoRated.movieDetails());
+    }
+
+    @Test
+    public void shouldSetCheckoutFalseWhenMovieIsCreated() {
+        assertFalse(movie.isMovieCheckout());
+    }
+
+    @Test
+    public void shouldSetCheckoutFalseWhenMovieNotRatedIsCreated() {
+        assertFalse(movieNoRated.isMovieCheckout());
+    }
+
+    @Test
+    public void shouldReturnTrueWhenBookIsCheckedOut() {
+        movie.setMovieIsCheckedOut(true);
+        assertTrue(movie.isMovieCheckout());
+    }
+
+    @Test
+    public void shouldReturnFalseWhenBookIsNotCheckedOut() {
+        movieNoRated.setMovieIsCheckedOut(false);
+        assertFalse(movieNoRated.isMovieCheckout());
     }
 }

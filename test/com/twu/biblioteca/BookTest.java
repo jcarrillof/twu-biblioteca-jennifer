@@ -25,23 +25,23 @@ public class BookTest {
     @Test
     public void shouldReturnStringOfBookDetails(){
         String expected = String.format("%-30s%-30s%-4s\n","Book One", "Author One", 2016);
-        assertEquals(expected, bookOne.itemDetails());
+        assertEquals(expected, bookOne.bookDetails());
     }
 
-//    @Test
-//    public void shouldSetCheckoutFalseWhenBookIsCreated() {
-//        assertFalse(bookOne.itemIsCheckedOut());
-//    }
-//
-//    @Test
-//    public void shouldReturnTrueWhenBookIsCheckedOut() {
-//        bookOne.setItemIsCheckedOut(true);
-//        assertTrue(bookOne.itemIsCheckedOut());
-//    }
-//
-//    @Test
-//    public void shouldReturnFalseWhenBookIsNotCheckedOut() {
-//        bookOne.setItemIsCheckedOut(false);
-//        assertFalse(bookOne.itemIsCheckedOut());
-//    }
+    @Test
+    public void shouldSetCheckoutFalseWhenBookIsCreated() {
+        assertFalse(bookOne.isBookCheckout());
+    }
+
+    @Test
+    public void shouldReturnTrueWhenBookIsCheckedOut() {
+        bookOne.setBookIsCheckedOut(true);
+        assertTrue(bookOne.isBookCheckout());
+    }
+
+    @Test
+    public void shouldReturnFalseWhenBookIsNotCheckedOut() {
+        bookOne.setBookIsCheckedOut(false);
+        assertFalse(bookOne.isBookCheckout());
+    }
 }

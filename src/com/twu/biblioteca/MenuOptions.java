@@ -2,11 +2,11 @@ package com.twu.biblioteca;
 
 public enum MenuOptions {
 
-    LISTOFBOOKS(1, "List of books"),
-    CHECKOUTBOOK(2, "Checkout a book"),
-    RETURNBOOK(3, "Return a book"),
+    LIST_OF_BOOKS(1, "List of books"),
+    CHECKOUT_BOOK(2, "Checkout a book"),
+    RETURN_BOOK(3, "Return a book"),
     QUIT(0, "Quit"),
-    NOTVALIDOPTION(-1, "Select a valid option!");
+    NOT_VALID_OPTION(-1, "Select a valid option!");
 
     private final int numberOption;
     private final String nameOption;
