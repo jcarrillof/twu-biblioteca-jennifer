@@ -39,6 +39,16 @@ public class Library{
         return printFormat;
     }
 
+    public String listAvailableMovies() {
+        String printFormat = "\n";
+        for (Movie movie : moviesInLibrary) {
+            if (!movie.isMovieCheckout()){
+                printFormat += movie.movieDetails();
+            }
+        }
+        return printFormat;
+    }
+
     private String messageFromCheckoutBook(String nameBook) {
         Book bookResult = changeBookStatusWhenCheckout(nameBook);
         if (bookResult != null && bookResult.isBookCheckout()){
@@ -83,11 +93,29 @@ public class Library{
         return Messages.UNSUCCESSFUL_RETURN_BOOK.toString();
     }
 
+    private String messageFromReturnMovie(String nameMovie) {
+        Movie movieResult = changeMovieStatusWhenReturn(nameMovie);
+        if (movieResult != null && !movieResult.isMovieCheckout()){
+            return Messages.SUCCESSFUL_RETURN_MOVIE.toString();
+        }
+        return Messages.UNSUCCESSFUL_RETURN_MOVIE.toString();
+    }
+
     private Book changeBookStatusWhenReturn(String nameBook) {
         for (Book book : booksInLibrary) {
             if (book.getName().equals(nameBook)) {
                 book.setBookIsCheckedOut(false);
                 return book;
+            }
+        }
+        return null;
+    }
+
+    private Movie changeMovieStatusWhenReturn(String nameMovie) {
+        for (Movie movie : moviesInLibrary) {
+            if (movie.getName().equals(nameMovie)) {
+                movie.setMovieIsCheckedOut(false);
+                return movie;
             }
         }
         return null;
@@ -105,21 +133,15 @@ public class Library{
         return messageFromReturnBook(nameBook);
     }
 
+    public String returnMovie(String nameMovie) {
+        return messageFromReturnMovie(nameMovie);
+    }
+
     public String messageWhenQuitLibrary(){
         return MenuOptions.QUIT.nameOption();
     }
 
     public String messageToSelectValidOption(){
         return MenuOptions.NOT_VALID_OPTION.nameOption();
-    }
-
-    public String listAvailableMovies() {
-        String printFormat = "\n";
-        for (Movie movie : moviesInLibrary) {
-            if (!movie.isMovieCheckout()){
-                printFormat += movie.movieDetails();
-            }
-        }
-        return printFormat;
     }
 }

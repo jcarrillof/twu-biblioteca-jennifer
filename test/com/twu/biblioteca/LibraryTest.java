@@ -81,16 +81,30 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnMessageWhenSuccessfulReturn() {
+    public void shouldReturnMessageWhenSuccessfulReturnBook() {
         String nameBook = library.booksInLibrary.get(0).getName();
         String messageWhenReturnBook = library.returnBook(nameBook);
         assertEquals("Thank you for returning the book", messageWhenReturnBook);
     }
 
     @Test
-    public void shouldReturnMessageWhenUnsuccessfulReturn() {
+    public void shouldReturnMessageWhenUnsuccessfulReturnBook() {
         String nameBook = "Book Five";
         String messageWhenReturnBook = library.returnBook(nameBook);
         assertEquals("That is not a valid book to return", messageWhenReturnBook);
+    }
+
+    @Test
+    public void shouldReturnMessageWhenSuccessfulReturnMovie() {
+        String nameMovie = library.moviesInLibrary.get(0).getName();
+        String messageWhenReturnMovie = library.returnMovie(nameMovie);
+        assertEquals("Thank you for returning the movie", messageWhenReturnMovie);
+    }
+
+    @Test
+    public void shouldReturnMessageWhenUnSuccessfulReturnMovie() {
+        String nameMovie = "Movie Five";
+        String messageWhenReturnMovie = library.returnMovie(nameMovie);
+        assertEquals("That is not a valid movie to return", messageWhenReturnMovie);
     }
 }

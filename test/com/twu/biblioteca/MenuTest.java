@@ -20,8 +20,10 @@ public class MenuTest {
     @Test
     public void shouldPrintMenu() {
         String menuString = "\n/***** Menu *****/\n"
-                + MenuOptions.LIST_OF_BOOKS.toString() + MenuOptions.CHECKOUT_BOOK.toString()
-                + MenuOptions.RETURN_BOOK.toString() + MenuOptions.QUIT.toString()
+                + MenuOptions.LIST_OF_BOOKS.toString()
+                + MenuOptions.CHECKOUT_BOOK.toString() + MenuOptions.RETURN_BOOK.toString()
+                + MenuOptions.CHECKOUT_MOVIE.toString() + MenuOptions.RETURN_MOVIE.toString()
+                + MenuOptions.QUIT.toString()
                 + "\nSelect an option: ";
         PrintStream printStream = mock(PrintStream.class);
         Menu menu = new Menu(printStream);
@@ -69,5 +71,13 @@ public class MenuTest {
         String nameBook = "";
         Menu menu = new Menu();
         assertEquals("Quit", menu.doActionFromOption(optionFromMenu, nameBook));
+    }
+
+    @Test
+    public void shouldReturnMessageWhenGivenOptionNotFoundInMenu() {
+        int optionFromMenu = 5;
+        String nameBook = "";
+        Menu menu = new Menu();
+        assertEquals("Action not found!", menu.doActionFromOption(optionFromMenu, nameBook));
     }
 }

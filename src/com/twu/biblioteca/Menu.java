@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private final int maximumNumberOption = 3;
+    private final int maximumNumberOption = 5;
     private final int minimumNumberOption = 0;
     private PrintStream printStream;
     private HashMap<Integer, ServiceLibrary> actionsFromOptions;
@@ -36,6 +36,8 @@ public class Menu {
                 + MenuOptions.LIST_OF_BOOKS.toString()
                 + MenuOptions.CHECKOUT_BOOK.toString()
                 + MenuOptions.RETURN_BOOK.toString()
+                + MenuOptions.CHECKOUT_MOVIE.toString()
+                + MenuOptions.RETURN_MOVIE.toString()
                 + MenuOptions.QUIT.toString()
                 + "\nSelect an option: ";
     }
@@ -60,11 +62,15 @@ public class Menu {
 
     public String doActionFromOption(int optionFromMenu, String nameBookWhenNeeded) {
         listOfActionsForEachOption();
-        return actionsFromOptions.get(optionFromMenu).serviceFromLibraryGivenOption(nameBookWhenNeeded);
+        try {
+            return actionsFromOptions.get(optionFromMenu).serviceFromLibraryGivenOption(nameBookWhenNeeded);
+        }catch (NullPointerException exception){
+            return Messages.NOT_FOUND_ACTION_IN_MAP.toString();
+        }
     }
 
     public String getNameBookFromInput() {
-        System.out.println("Name of book: ");
+        System.out.println(Messages.ASK_NAME_OF_BOOK);
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
