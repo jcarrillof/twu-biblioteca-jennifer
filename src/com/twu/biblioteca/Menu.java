@@ -75,6 +75,12 @@ public class Menu {
         return scanner.nextLine();
     }
 
+    public String getNameMovieFromInput() {
+        System.out.println(Messages.ASK_NAME_OF_MOVIE);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
     private void listOfActionsForEachOption() {
         actionsFromOptions.put(MenuOptions.LIST_OF_BOOKS.numberOption(), new ServiceLibrary() {
             @Override
