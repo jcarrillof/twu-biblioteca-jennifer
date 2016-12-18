@@ -75,7 +75,7 @@ public class MenuTest {
 
     @Test
     public void shouldReturnMessageWhenGivenOptionNotFoundInMenu() {
-        int optionFromMenu = 5;
+        int optionFromMenu = 100;
         String nameBook = "";
         Menu menu = new Menu();
         assertEquals("Action not found!", menu.doActionFromOption(optionFromMenu, nameBook));

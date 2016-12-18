@@ -11,8 +11,7 @@ public enum Messages {
     SUCCESSFUL_RETURN_MOVIE("Thank you for returning the movie"),
     UNSUCCESSFUL_RETURN_MOVIE("That is not a valid movie to return"),
     NOT_FOUND_ACTION_IN_MAP("Action not found!"),
-    ASK_NAME_OF_BOOK("Name of book: "),
-    ASK_NAME_OF_MOVIE("Name of movie: ");
+    ASK_NAME_OF_ITEM("Name of book: ");
 
     private final String text;
 

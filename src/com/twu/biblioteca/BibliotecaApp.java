@@ -4,8 +4,11 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
 
+        Login login = new Login();
+        login.getInputCredentials();
+
         String resultFromAction;
-        String nameBook = "";
+        String nameItem = "";
         Menu menu = new Menu();
         menu.printWelcomeMessage();
 
@@ -15,9 +18,9 @@ public class BibliotecaApp {
             int optionNumber = menu.numberOptionFromInputString(inputFromUser);
             if (optionNumber == MenuOptions.CHECKOUT_BOOK.numberOption()
                     || optionNumber == MenuOptions.RETURN_BOOK.numberOption()){
-                nameBook = menu.getNameBookFromInput();
+                nameItem = menu.getNameItemFromInput();
             }
-            resultFromAction = menu.doActionFromOption(optionNumber, nameBook);
+            resultFromAction = menu.doActionFromOption(optionNumber, nameItem);
             System.out.println(resultFromAction);
         }while (!resultFromAction.equals(MenuOptions.QUIT.nameOption()));
     }
