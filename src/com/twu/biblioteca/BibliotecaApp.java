@@ -10,7 +10,7 @@ public class BibliotecaApp {
         String nameItem = "";
         Menu menu = new Menu();
         menu.printWelcomeMessage();
-        int user = -1;
+        int user = userNull;
 
         do {
             menu.printMenu();

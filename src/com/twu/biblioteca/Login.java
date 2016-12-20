@@ -9,8 +9,10 @@ public class Login {
     public List<User> listUsers = new ArrayList<>();
 
     Login(){
-        User userOne = new User("001-0001", "user_pass_0001", "Jennifer Carrillo", "jcarrill@email.com", "0987482832");
+        User userOne = new User("001-0001", "user_pass_0001", "Jennifer Carrillo", "jcarrillo@email.com", "0987482832");
         listUsers.add(userOne);
+        User userTwo = new User("001-0002", "user_pass_0002", "Andrea Ortega", "aortega@email.com", "0995242965");
+        listUsers.add(userTwo);
     }
 
     public List<String> getInputCredentials(){

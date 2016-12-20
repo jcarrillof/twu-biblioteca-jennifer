@@ -149,7 +149,7 @@ public class Library{
         String printFormat = "\n";
         for (Book book : booksInLibrary) {
             if (book.isItemCheckedOut()){
-                printFormat += book.getResponsibleUser() + "\n";
+                printFormat += book.getResponsibleUser() + " -- " + book.getName() + "\n";
             }
         }
         return printFormat;

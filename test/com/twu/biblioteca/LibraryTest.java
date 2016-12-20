@@ -115,7 +115,7 @@ public class LibraryTest {
         String expected = "\n";
         for (Book book : listBooks) {
             if (book.isItemCheckedOut()){
-                expected += book.getResponsibleUser() + "\n";
+                expected += book.getResponsibleUser() + " -- " + book.getName() + "\n";
             }
         }
         assertEquals(expected, library.listCheckedOutItems());
