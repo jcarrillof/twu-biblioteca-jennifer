@@ -1,5 +1,5 @@
 package com.twu.biblioteca;
 
 public interface ServiceLibrary {
-    String serviceFromLibraryGivenOption(String nameBook);
+    String serviceFromLibraryGivenOption(String nameBook, int userResponsibleWhenNeeded);
 }

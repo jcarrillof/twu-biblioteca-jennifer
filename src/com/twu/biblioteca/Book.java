@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Book {
+public class Book extends Item{
 
     private String name;
     private String author;
@@ -11,7 +11,7 @@ public class Book {
         this.name = name;
         this.author = author;
         this.yearPublished = yearPublished;
-        setBookIsCheckedOut(false);
+        setBookIsCheckedOut(false, null);
     }
 
     public String getName() {
@@ -34,7 +34,12 @@ public class Book {
         return bookIsCheckedOut;
     }
 
-    public void setBookIsCheckedOut(boolean bookIsCheckedOut) {
+    public void setBookIsCheckedOut(boolean bookIsCheckedOut, String userResponsible) {
         this.bookIsCheckedOut = bookIsCheckedOut;
+        if (!bookIsCheckedOut){
+            setResponsibleUser(null);
+        }else {
+            setResponsibleUser(userResponsible);
+        }
     }
 }

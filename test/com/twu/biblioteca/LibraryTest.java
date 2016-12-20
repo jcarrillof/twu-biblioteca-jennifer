@@ -37,23 +37,23 @@ public class LibraryTest {
     @Test
     public void shouldReturnMessageWhenBookExistsAndIsAvailable() {
         String nameBook = library.booksInLibrary.get(0).getName();
-        String messageWhenCheckoutBook = library.checkoutBook(nameBook);
+        String messageWhenCheckoutBook = library.checkoutBook(nameBook, "Responsible 1");
         assertEquals("Thank you! Enjoy the book", messageWhenCheckoutBook);
     }
 
     @Test
     public void shouldReturnMessageWhenBookDoesNotExist(){
         String nameBook = "Book Five";
-        String messageWhenCheckoutBook = library.checkoutBook(nameBook);
+        String messageWhenCheckoutBook = library.checkoutBook(nameBook, "Responsible 1");
         assertEquals("That book is not available", messageWhenCheckoutBook);
     }
 
     @Test
     public void shouldReturnMessageWhenBookIsNotAvailable(){
         Book book = library.booksInLibrary.get(1);
-        book.setBookIsCheckedOut(true);
+        book.setBookIsCheckedOut(true, "New user");
         String nameBook = book.getName();
-        String messageWhenCheckoutBook = library.checkoutBook(nameBook);
+        String messageWhenCheckoutBook = library.checkoutBook(nameBook, "Responsible 1");
         assertEquals("That book is not available", messageWhenCheckoutBook);
     }
 
@@ -106,5 +106,26 @@ public class LibraryTest {
         String nameMovie = "Movie Five";
         String messageWhenReturnMovie = library.returnMovie(nameMovie);
         assertEquals("That is not a valid movie to return", messageWhenReturnMovie);
+    }
+
+    @Test
+    public void shouldReturnStringOfCheckedOutBooksWithResponsible() {
+        List<Book> listBooks = library.booksInLibrary;
+        library.checkoutBook(listBooks.get(0).getName(), "Responsible 1");
+        String expected = "\n";
+        for (Book book : listBooks) {
+            if (book.isBookCheckout()){
+                expected += book.getResponsibleUser() + "\n";
+            }
+        }
+        assertEquals(expected, library.listCheckedOutItems());
+    }
+
+    @Test
+    public void shouldReturnNullUserWhenBookReturn() {
+        List<Book> listBooks = library.booksInLibrary;
+        library.returnBook(listBooks.get(0).getName());
+        Book bookTest = listBooks.get(0);
+        assertEquals(null, bookTest.getResponsibleUser());
     }
 }

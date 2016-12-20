@@ -22,7 +22,10 @@ public class MenuTest {
         String menuString = "\n/***** Menu *****/\n"
                 + MenuOptions.LIST_OF_BOOKS.toString()
                 + MenuOptions.CHECKOUT_BOOK.toString() + MenuOptions.RETURN_BOOK.toString()
+                + MenuOptions.LIST_OF_MOVIES.toString()
                 + MenuOptions.CHECKOUT_MOVIE.toString() + MenuOptions.RETURN_MOVIE.toString()
+                + MenuOptions.USER_INFORMATION.toString()
+                + MenuOptions.RESPONSIBLE_USERS_ITEMS.toString()
                 + MenuOptions.QUIT.toString()
                 + "\nSelect an option: ";
         PrintStream printStream = mock(PrintStream.class);
@@ -62,7 +65,7 @@ public class MenuTest {
         Menu menu = new Menu();
         Library library = new Library();
         String booksAvailableExpected = library.listAvailableBooks();
-        assertEquals(booksAvailableExpected, menu.doActionFromOption(optionFromMenu, nameBook));
+        assertEquals(booksAvailableExpected, menu.doActionFromOption(optionFromMenu, nameBook, -1));
     }
 
     @Test
@@ -70,7 +73,7 @@ public class MenuTest {
         int optionFromMenu = 0;
         String nameBook = "";
         Menu menu = new Menu();
-        assertEquals("Quit", menu.doActionFromOption(optionFromMenu, nameBook));
+        assertEquals("Quit", menu.doActionFromOption(optionFromMenu, nameBook, -1));
     }
 
     @Test
@@ -78,6 +81,6 @@ public class MenuTest {
         int optionFromMenu = 100;
         String nameBook = "";
         Menu menu = new Menu();
-        assertEquals("Action not found!", menu.doActionFromOption(optionFromMenu, nameBook));
+        assertEquals("Action not found!", menu.doActionFromOption(optionFromMenu, nameBook, -1));
     }
 }

@@ -35,13 +35,25 @@ public class BookTest {
 
     @Test
     public void shouldReturnTrueWhenBookIsCheckedOut() {
-        bookOne.setBookIsCheckedOut(true);
+        bookOne.setBookIsCheckedOut(true, "New user");
         assertTrue(bookOne.isBookCheckout());
     }
 
     @Test
     public void shouldReturnFalseWhenBookIsNotCheckedOut() {
-        bookOne.setBookIsCheckedOut(false);
+        bookOne.setBookIsCheckedOut(false, null);
         assertFalse(bookOne.isBookCheckout());
+    }
+
+    @Test
+    public void shouldReturnUserNullWhenBookIsReturn() {
+        bookOne.setBookIsCheckedOut(false, null);
+        assertEquals(null, bookOne.getResponsibleUser());
+    }
+
+    @Test
+    public void shouldReturnUserNameWhenBookIsCheckedOut() {
+        bookOne.setBookIsCheckedOut(true, "New user");
+        assertEquals("New user", bookOne.getResponsibleUser());
     }
 }

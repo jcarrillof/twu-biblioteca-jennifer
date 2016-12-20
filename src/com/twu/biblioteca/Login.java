@@ -26,21 +26,20 @@ public class Login {
         return credentials;
     }
 
-    public boolean areValidCredentials(String username, String password) {
+    public int validCredentials(String username, String password) {
         for (User user:listUsers) {
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-                return true;
+                return listUsers.indexOf(user);
             }
         }
-        return false;
+        return -1;
     }
 
-    public String getUsernameIsLoggedIn() {
-        for (User user:listUsers) {
-            if(user.isUserLogin()){
-                return user.getUsername();
-            }
+    public String getUserDetailsIsLoggedIn(int userIndex) {
+        try {
+            return listUsers.get(userIndex).userDetails();
+        }catch (Exception exception){
+            return Messages.LOGIN_REQUIRED.toString();
         }
-        return null;
     }
 }

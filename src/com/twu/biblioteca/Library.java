@@ -49,8 +49,8 @@ public class Library{
         return printFormat;
     }
 
-    private String messageFromCheckoutBook(String nameBook) {
-        Book bookResult = changeBookStatusWhenCheckout(nameBook);
+    private String messageFromCheckoutBook(String nameBook, String userResponsible) {
+        Book bookResult = changeBookStatusWhenCheckout(nameBook, userResponsible);
         if (bookResult != null && bookResult.isBookCheckout()){
             return Messages.SUCCESSFUL_CHECKOUT_BOOK.toString();
         }
@@ -65,10 +65,10 @@ public class Library{
         return Messages.UNSUCCESSFUL_CHECKOUT_MOVIE.toString();
     }
 
-    private Book changeBookStatusWhenCheckout(String nameBook) {
+    private Book changeBookStatusWhenCheckout(String nameBook, String userResponsible) {
         for (Book book : booksInLibrary) {
             if(book.getName().equals(nameBook) && !book.isBookCheckout()){
-                book.setBookIsCheckedOut(true);
+                book.setBookIsCheckedOut(true, userResponsible);
                 return book;
             }
         }
@@ -104,7 +104,7 @@ public class Library{
     private Book changeBookStatusWhenReturn(String nameBook) {
         for (Book book : booksInLibrary) {
             if (book.getName().equals(nameBook)) {
-                book.setBookIsCheckedOut(false);
+                book.setBookIsCheckedOut(false, null);
                 return book;
             }
         }
@@ -121,8 +121,8 @@ public class Library{
         return null;
     }
 
-    public String checkoutBook(String nameBook) {
-        return messageFromCheckoutBook(nameBook);
+    public String checkoutBook(String nameBook, String userResponsible) {
+        return messageFromCheckoutBook(nameBook, userResponsible);
     }
 
     public String checkoutMovie(String nameMovie) {
@@ -143,5 +143,15 @@ public class Library{
 
     public String messageToSelectValidOption(){
         return MenuOptions.NOT_VALID_OPTION.nameOption();
+    }
+
+    public String listCheckedOutItems() {
+        String printFormat = "\n";
+        for (Book book : booksInLibrary) {
+            if (book.isBookCheckout()){
+                printFormat += book.getResponsibleUser() + "\n";
+            }
+        }
+        return printFormat;
     }
 }

@@ -2,20 +2,23 @@ package com.twu.biblioteca;
 
 import java.io.PrintStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 
-    private final int maximumNumberOption = 7;
+    private final int maximumNumberOption = 8;
     private final int minimumNumberOption = 0;
     private PrintStream printStream;
     private HashMap<Integer, ServiceLibrary> actionsFromOptions;
     private Library library;
+    private Login login;
 
     public Menu(){
         printStream = System.out;
         actionsFromOptions = new HashMap<>();
         library = new Library();
+        login = new Login();
     }
 
     public Menu(PrintStream printStream) {
@@ -40,6 +43,7 @@ public class Menu {
                 + MenuOptions.CHECKOUT_MOVIE.toString()
                 + MenuOptions.RETURN_MOVIE.toString()
                 + MenuOptions.USER_INFORMATION.toString()
+                + MenuOptions.RESPONSIBLE_USERS_ITEMS.toString()
                 + MenuOptions.QUIT.toString()
                 + "\nSelect an option: ";
     }
@@ -62,10 +66,19 @@ public class Menu {
         return scanner.nextLine();
     }
 
-    public String doActionFromOption(int optionFromMenu, String nameItemWhenNeeded) {
+    public List<String> getInputCredentials(){
+        return login.getInputCredentials();
+    }
+
+    public int validateCredentials(List<String> credentials){
+        return login.validCredentials(credentials.get(0), credentials.get(1));
+    }
+
+    public String doActionFromOption(int optionFromMenu, String nameItemWhenNeeded, int userResponsibleWhenNeeded) {
         listOfActionsForEachOption();
         try {
-            return actionsFromOptions.get(optionFromMenu).serviceFromLibraryGivenOption(nameItemWhenNeeded);
+            return actionsFromOptions.get(optionFromMenu).serviceFromLibraryGivenOption(nameItemWhenNeeded,
+                    userResponsibleWhenNeeded);
         }catch (NullPointerException exception){
             return Messages.NOT_FOUND_ACTION_IN_MAP.toString();
         }
@@ -80,55 +93,71 @@ public class Menu {
     private void listOfActionsForEachOption() {
         actionsFromOptions.put(MenuOptions.LIST_OF_BOOKS.numberOption(), new ServiceLibrary() {
             @Override
-            public String serviceFromLibraryGivenOption(String nameItem) {
+            public String serviceFromLibraryGivenOption(String nameItem, int userResponsible) {
                 return library.listAvailableBooks();
             }
         });
         actionsFromOptions.put(MenuOptions.CHECKOUT_BOOK.numberOption(), new ServiceLibrary() {
             @Override
-            public String serviceFromLibraryGivenOption(String nameBook) {
-                return library.checkoutBook(nameBook);
+            public String serviceFromLibraryGivenOption(String nameBook, int userResponsible) {
+                try {
+                    String userResponsibleName = login.listUsers.get(userResponsible).getName();
+                    return library.checkoutBook(nameBook, userResponsibleName);
+                }catch (Exception exception){
+                    return Messages.CREDENTIALS_NOT_VALID.toString();
+                }
             }
         });
         actionsFromOptions.put(MenuOptions.RETURN_BOOK.numberOption(), new ServiceLibrary() {
             @Override
-            public String serviceFromLibraryGivenOption(String nameBook) {
-                return library.returnBook(nameBook);
+            public String serviceFromLibraryGivenOption(String nameBook, int userResponsible) {
+                try {
+                    login.listUsers.get(userResponsible);
+                    return library.returnBook(nameBook);
+                }catch (Exception exception){
+                    return Messages.CREDENTIALS_NOT_VALID.toString();
+                }
             }
         });
         actionsFromOptions.put(MenuOptions.LIST_OF_MOVIES.numberOption(), new ServiceLibrary() {
             @Override
-            public String serviceFromLibraryGivenOption(String nameMovie) {
+            public String serviceFromLibraryGivenOption(String nameMovie, int userResponsible) {
                 return library.listAvailableMovies();
             }
         });
         actionsFromOptions.put(MenuOptions.CHECKOUT_MOVIE.numberOption(), new ServiceLibrary() {
             @Override
-            public String serviceFromLibraryGivenOption(String nameMovie) {
+            public String serviceFromLibraryGivenOption(String nameMovie, int userResponsible) {
                 return library.checkoutMovie(nameMovie);
             }
         });
         actionsFromOptions.put(MenuOptions.RETURN_MOVIE.numberOption(), new ServiceLibrary() {
             @Override
-            public String serviceFromLibraryGivenOption(String nameMovie) {
+            public String serviceFromLibraryGivenOption(String nameMovie, int userResponsible) {
                 return library.returnMovie(nameMovie);
             }
         });
         actionsFromOptions.put(MenuOptions.USER_INFORMATION.numberOption(), new ServiceLibrary() {
             @Override
-            public String serviceFromLibraryGivenOption(String nameMovie) {
-                return "User information";
+            public String serviceFromLibraryGivenOption(String nameMovie, int userResponsible) {
+                return login.getUserDetailsIsLoggedIn(userResponsible);
+            }
+        });
+        actionsFromOptions.put(MenuOptions.RESPONSIBLE_USERS_ITEMS.numberOption(), new ServiceLibrary() {
+            @Override
+            public String serviceFromLibraryGivenOption(String nameMovie, int userResponsible) {
+                return library.listCheckedOutItems();
             }
         });
         actionsFromOptions.put(MenuOptions.QUIT.numberOption(), new ServiceLibrary() {
             @Override
-            public String serviceFromLibraryGivenOption(String nameItem) {
+            public String serviceFromLibraryGivenOption(String nameItem, int userResponsible) {
                 return library.messageWhenQuitLibrary();
             }
         });
         actionsFromOptions.put(MenuOptions.NOT_VALID_OPTION.numberOption(), new ServiceLibrary() {
             @Override
-            public String serviceFromLibraryGivenOption(String nameItem) {
+            public String serviceFromLibraryGivenOption(String nameItem, int userResponsible) {
                 return library.messageToSelectValidOption();
             }
         });

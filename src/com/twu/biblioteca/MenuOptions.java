@@ -9,6 +9,7 @@ public enum MenuOptions {
     CHECKOUT_MOVIE(5, "Checkout a movie"),
     RETURN_MOVIE(6, "Return a movie"),
     USER_INFORMATION(7, "User information"),
+    RESPONSIBLE_USERS_ITEMS(8, "Users who checked out books"),
     QUIT(0, "Quit"),
     NOT_VALID_OPTION(-1, "Select a valid option!");
 

@@ -11,25 +11,25 @@ public class LoginTest {
     public void shouldReturnTrueWhenCredentialsAreValid() {
         String username = login.listUsers.get(0).getUsername();
         String password = login.listUsers.get(0).getPassword();
-        assertTrue(login.areValidCredentials(username, password));
+        assertEquals(0, login.validCredentials(username, password));
     }
 
     @Test
     public void shouldReturnFalseWhenCredentialsAreNotValid() {
         String username = "001-0001";
         String password = "password";
-        assertFalse(login.areValidCredentials(username, password));
+        assertEquals(-1, login.validCredentials(username, password));
     }
 
     @Test
     public void shouldReturnUsernameWhenIsLoggedIn() {
         login.listUsers.get(0).setUserLogin(true);
-        String expected = login.listUsers.get(0).getUsername();
-        assertEquals(expected, login.getUsernameIsLoggedIn());
+        String expected = login.listUsers.get(0).userDetails();
+        assertEquals(expected, login.getUserDetailsIsLoggedIn(0));
     }
 
     @Test
     public void shouldReturnNullWhenUserIsNotLoggedIn() {
-        assertEquals(null, login.getUsernameIsLoggedIn());
+        assertEquals("You must be logged in or your credentials are not valid", login.getUserDetailsIsLoggedIn(-1));
     }
 }
