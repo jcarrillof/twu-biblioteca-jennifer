@@ -15,7 +15,7 @@ public class LibraryTest {
         List<Book> listBooks = library.booksInLibrary;
         String expected = "\n";
         for (Book book : listBooks) {
-            if (!book.isBookCheckout()){
+            if (!book.isItemCheckedOut()){
                 expected += book.bookDetails();
             }
         }
@@ -27,7 +27,7 @@ public class LibraryTest {
         List<Movie> listMovies = library.moviesInLibrary;
         String expected = "\n";
         for (Movie movie : listMovies) {
-            if (!movie.isMovieCheckout()){
+            if (!movie.isItemCheckedOut()){
                 expected += movie.movieDetails();
             }
         }
@@ -51,7 +51,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnMessageWhenBookIsNotAvailable(){
         Book book = library.booksInLibrary.get(1);
-        book.setBookIsCheckedOut(true, "New user");
+        book.setItemCheckedOut(true, "New user");
         String nameBook = book.getName();
         String messageWhenCheckoutBook = library.checkoutBook(nameBook, "Responsible 1");
         assertEquals("That book is not available", messageWhenCheckoutBook);
@@ -74,7 +74,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnMessageWhenMovieIsNotAvailable(){
         Movie movie = library.moviesInLibrary.get(1);
-        movie.setMovieIsCheckedOut(true);
+        movie.setItemCheckedOut(true, null);
         String nameMovie = movie.getName();
         String messageWhenCheckoutMovie = library.checkoutMovie(nameMovie);
         assertEquals("That movie is not available", messageWhenCheckoutMovie);
@@ -114,7 +114,7 @@ public class LibraryTest {
         library.checkoutBook(listBooks.get(0).getName(), "Responsible 1");
         String expected = "\n";
         for (Book book : listBooks) {
-            if (book.isBookCheckout()){
+            if (book.isItemCheckedOut()){
                 expected += book.getResponsibleUser() + "\n";
             }
         }

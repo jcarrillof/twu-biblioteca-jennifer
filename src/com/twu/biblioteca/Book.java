@@ -11,7 +11,7 @@ public class Book extends Item{
         this.name = name;
         this.author = author;
         this.yearPublished = yearPublished;
-        setBookIsCheckedOut(false, null);
+        setItemCheckedOut(false, null);
     }
 
     public String getName() {
@@ -30,11 +30,13 @@ public class Book extends Item{
         return String.format("%-30s%-30s%-4d\n", name, author, yearPublished);
     }
 
-    public boolean isBookCheckout() {
+    @Override
+    public boolean isItemCheckedOut() {
         return bookIsCheckedOut;
     }
 
-    public void setBookIsCheckedOut(boolean bookIsCheckedOut, String userResponsible) {
+    @Override
+    public void setItemCheckedOut(boolean bookIsCheckedOut, String userResponsible) {
         this.bookIsCheckedOut = bookIsCheckedOut;
         if (!bookIsCheckedOut){
             setResponsibleUser(null);

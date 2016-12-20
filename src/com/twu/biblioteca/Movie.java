@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Movie {
+public class Movie extends Item{
 
     private String name;
     private int year;
@@ -13,7 +13,7 @@ public class Movie {
         this.year = year;
         this.director = director;
         this.rating = validateRating(rating);
-        setMovieIsCheckedOut(false);
+        setItemCheckedOut(false, null);
     }
 
     public Movie(String name, int year, String director) {
@@ -21,7 +21,7 @@ public class Movie {
         this.year = year;
         this.director = director;
         this.rating = 0;
-        setMovieIsCheckedOut(false);
+        setItemCheckedOut(false, null);
     }
 
     public String getName() {
@@ -62,11 +62,13 @@ public class Movie {
         return 0;
     }
 
-    public boolean isMovieCheckout() {
+    @Override
+    public boolean isItemCheckedOut() {
         return movieIsCheckedOut;
     }
 
-    public void setMovieIsCheckedOut(boolean movieIsCheckedOut) {
+    @Override
+    public void setItemCheckedOut(boolean movieIsCheckedOut, String userResponsible) {
         this.movieIsCheckedOut = movieIsCheckedOut;
     }
 }

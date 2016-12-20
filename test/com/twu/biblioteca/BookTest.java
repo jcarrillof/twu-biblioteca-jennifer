@@ -30,30 +30,30 @@ public class BookTest {
 
     @Test
     public void shouldSetCheckoutFalseWhenBookIsCreated() {
-        assertFalse(bookOne.isBookCheckout());
+        assertFalse(bookOne.isItemCheckedOut());
     }
 
     @Test
     public void shouldReturnTrueWhenBookIsCheckedOut() {
-        bookOne.setBookIsCheckedOut(true, "New user");
-        assertTrue(bookOne.isBookCheckout());
+        bookOne.setItemCheckedOut(true, "New user");
+        assertTrue(bookOne.isItemCheckedOut());
     }
 
     @Test
     public void shouldReturnFalseWhenBookIsNotCheckedOut() {
-        bookOne.setBookIsCheckedOut(false, null);
-        assertFalse(bookOne.isBookCheckout());
+        bookOne.setItemCheckedOut(false, null);
+        assertFalse(bookOne.isItemCheckedOut());
     }
 
     @Test
     public void shouldReturnUserNullWhenBookIsReturn() {
-        bookOne.setBookIsCheckedOut(false, null);
+        bookOne.setItemCheckedOut(false, null);
         assertEquals(null, bookOne.getResponsibleUser());
     }
 
     @Test
     public void shouldReturnUserNameWhenBookIsCheckedOut() {
-        bookOne.setBookIsCheckedOut(true, "New user");
+        bookOne.setItemCheckedOut(true, "New user");
         assertEquals("New user", bookOne.getResponsibleUser());
     }
 }

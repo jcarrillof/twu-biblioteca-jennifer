@@ -68,23 +68,23 @@ public class MovieTest {
 
     @Test
     public void shouldSetCheckoutFalseWhenMovieIsCreated() {
-        assertFalse(movie.isMovieCheckout());
+        assertFalse(movie.isItemCheckedOut());
     }
 
     @Test
     public void shouldSetCheckoutFalseWhenMovieNotRatedIsCreated() {
-        assertFalse(movieNoRated.isMovieCheckout());
+        assertFalse(movieNoRated.isItemCheckedOut());
     }
 
     @Test
     public void shouldReturnTrueWhenBookIsCheckedOut() {
-        movie.setMovieIsCheckedOut(true);
-        assertTrue(movie.isMovieCheckout());
+        movie.setItemCheckedOut(true, null);
+        assertTrue(movie.isItemCheckedOut());
     }
 
     @Test
     public void shouldReturnFalseWhenBookIsNotCheckedOut() {
-        movieNoRated.setMovieIsCheckedOut(false);
-        assertFalse(movieNoRated.isMovieCheckout());
+        movieNoRated.setItemCheckedOut(false, null);
+        assertFalse(movieNoRated.isItemCheckedOut());
     }
 }

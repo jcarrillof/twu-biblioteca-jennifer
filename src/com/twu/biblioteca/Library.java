@@ -32,7 +32,7 @@ public class Library{
     public String listAvailableBooks(){
         String printFormat = "\n";
         for (Book book : booksInLibrary) {
-            if (!book.isBookCheckout()){
+            if (!book.isItemCheckedOut()){
                 printFormat += book.bookDetails();
             }
         }
@@ -42,7 +42,7 @@ public class Library{
     public String listAvailableMovies() {
         String printFormat = "\n";
         for (Movie movie : moviesInLibrary) {
-            if (!movie.isMovieCheckout()){
+            if (!movie.isItemCheckedOut()){
                 printFormat += movie.movieDetails();
             }
         }
@@ -51,7 +51,7 @@ public class Library{
 
     private String messageFromCheckoutBook(String nameBook, String userResponsible) {
         Book bookResult = changeBookStatusWhenCheckout(nameBook, userResponsible);
-        if (bookResult != null && bookResult.isBookCheckout()){
+        if (bookResult != null && bookResult.isItemCheckedOut()){
             return Messages.SUCCESSFUL_CHECKOUT_BOOK.toString();
         }
         return Messages.UNSUCCESSFUL_CHECKOUT_BOOK.toString();
@@ -59,7 +59,7 @@ public class Library{
 
     private String messageFromCheckoutMovie(String nameMovie) {
         Movie movieResult = changeMovieStatusWhenCheckout(nameMovie);
-        if (movieResult != null && movieResult.isMovieCheckout()){
+        if (movieResult != null && movieResult.isItemCheckedOut()){
             return Messages.SUCCESSFUL_CHECKOUT_MOVIE.toString();
         }
         return Messages.UNSUCCESSFUL_CHECKOUT_MOVIE.toString();
@@ -67,8 +67,8 @@ public class Library{
 
     private Book changeBookStatusWhenCheckout(String nameBook, String userResponsible) {
         for (Book book : booksInLibrary) {
-            if(book.getName().equals(nameBook) && !book.isBookCheckout()){
-                book.setBookIsCheckedOut(true, userResponsible);
+            if(book.getName().equals(nameBook) && !book.isItemCheckedOut()){
+                book.setItemCheckedOut(true, userResponsible);
                 return book;
             }
         }
@@ -77,8 +77,8 @@ public class Library{
 
     private Movie changeMovieStatusWhenCheckout(String nameMovie) {
         for (Movie movie : moviesInLibrary) {
-            if(movie.getName().equals(nameMovie) && !movie.isMovieCheckout()){
-                movie.setMovieIsCheckedOut(true);
+            if(movie.getName().equals(nameMovie) && !movie.isItemCheckedOut()){
+                movie.setItemCheckedOut(true, null);
                 return movie;
             }
         }
@@ -87,7 +87,7 @@ public class Library{
 
     private String messageFromReturnBook(String nameBook) {
         Book bookResult = changeBookStatusWhenReturn(nameBook);
-        if (bookResult != null && !bookResult.isBookCheckout()){
+        if (bookResult != null && !bookResult.isItemCheckedOut()){
             return Messages.SUCCESSFUL_RETURN_BOOK.toString();
         }
         return Messages.UNSUCCESSFUL_RETURN_BOOK.toString();
@@ -95,7 +95,7 @@ public class Library{
 
     private String messageFromReturnMovie(String nameMovie) {
         Movie movieResult = changeMovieStatusWhenReturn(nameMovie);
-        if (movieResult != null && !movieResult.isMovieCheckout()){
+        if (movieResult != null && !movieResult.isItemCheckedOut()){
             return Messages.SUCCESSFUL_RETURN_MOVIE.toString();
         }
         return Messages.UNSUCCESSFUL_RETURN_MOVIE.toString();
@@ -104,7 +104,7 @@ public class Library{
     private Book changeBookStatusWhenReturn(String nameBook) {
         for (Book book : booksInLibrary) {
             if (book.getName().equals(nameBook)) {
-                book.setBookIsCheckedOut(false, null);
+                book.setItemCheckedOut(false, null);
                 return book;
             }
         }
@@ -114,7 +114,7 @@ public class Library{
     private Movie changeMovieStatusWhenReturn(String nameMovie) {
         for (Movie movie : moviesInLibrary) {
             if (movie.getName().equals(nameMovie)) {
-                movie.setMovieIsCheckedOut(false);
+                movie.setItemCheckedOut(false, null);
                 return movie;
             }
         }
@@ -148,7 +148,7 @@ public class Library{
     public String listCheckedOutItems() {
         String printFormat = "\n";
         for (Book book : booksInLibrary) {
-            if (book.isBookCheckout()){
+            if (book.isItemCheckedOut()){
                 printFormat += book.getResponsibleUser() + "\n";
             }
         }
