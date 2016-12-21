@@ -28,7 +28,8 @@ public class Book extends Item {
         return yearPublished;
     }
 
-    public String bookDetails() {
+    @Override
+    public String itemDetails() {
         return String.format("%-30s%-30s%-4d\n", name, author, yearPublished);
     }
 

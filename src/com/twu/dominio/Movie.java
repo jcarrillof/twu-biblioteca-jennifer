@@ -52,7 +52,8 @@ public class Movie extends Item {
         return ratingOutput;
     }
 
-    public String movieDetails() {
+    @Override
+    public String itemDetails() {
         String ratingOutput = outputStringRating();
         return String.format("%-30s%-30s%-10s%-10s\n", name, director, year, ratingOutput);
     }

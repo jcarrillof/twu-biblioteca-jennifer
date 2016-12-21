@@ -16,11 +16,11 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnStringOfListOfBooksAvailable() {
-        List<Book> listBooks = library.booksInLibrary;
         String expected = "\n";
-        for (Book book : listBooks) {
-            if (!book.isItemCheckedOut()){
-                expected += book.bookDetails();
+        List<Item> listOfItems = library.bookShelf.itemsInShelf;
+        for (Item item:listOfItems) {
+            if (!item.isItemCheckedOut()){
+                expected += item.itemDetails();
             }
         }
         assertEquals(expected, library.listAvailableBooks());
@@ -32,7 +32,7 @@ public class LibraryTest {
         String expected = "\n";
         for (Movie movie : listMovies) {
             if (!movie.isItemCheckedOut()){
-                expected += movie.movieDetails();
+                expected += movie.itemDetails();
             }
         }
         assertEquals(expected, library.listAvailableMovies());

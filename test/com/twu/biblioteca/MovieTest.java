@@ -58,13 +58,13 @@ public class MovieTest {
     @Test
     public void shouldReturnRatingInStringOfMovieDetailsWhenRated(){
         String expected = String.format("%-30s%-30s%-10s%-10s\n","Movie One", "Director One", 2014, 5);
-        assertEquals(expected, movie.movieDetails());
+        assertEquals(expected, movie.itemDetails());
     }
 
     @Test
     public void shouldReturnUnratedInStringOfMovieDetailsWhenNoRated() {
         String expected = String.format("%-30s%-30s%-10s%-10s\n","Movie Two", "Director Two", 1998, "unrated");
-        assertEquals(expected, movieNoRated.movieDetails());
+        assertEquals(expected, movieNoRated.itemDetails());
     }
 
     @Test

@@ -4,6 +4,8 @@ public abstract class Item {
 
     private String userResponsible;
 
+    public abstract String itemDetails();
+
     public abstract void setItemCheckedOut(boolean bookIsCheckedOut, String userResponsible);
 
     public abstract boolean isItemCheckedOut();

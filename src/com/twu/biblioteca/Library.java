@@ -12,6 +12,8 @@ public class Library{
 
     public List<Movie> moviesInLibrary = new ArrayList<>();
     public List<Book> booksInLibrary = new ArrayList<>();
+    public Shelf<Book> bookShelf = new Shelf<>();
+    public Shelf<Movie> movieShelf = new Shelf<>();
 
     public Library(){
         Book bookOne = new Book("Harry Potter", "J.K. Rowling", 1998);
@@ -26,6 +28,13 @@ public class Library{
         moviesInLibrary.add(movieTwo);
         Movie movieThree = new Movie("Titanic", 1996, "Cameron", 6);
         moviesInLibrary.add(movieThree);
+
+        bookShelf.add(bookOne);
+        bookShelf.add(bookTwo);
+        bookShelf.add(bookThree);
+        movieShelf.add(movieOne);
+        movieShelf.add(movieTwo);
+        movieShelf.add(movieThree);
     }
 
     public String readInputFromKeyboard(){
@@ -34,23 +43,25 @@ public class Library{
     }
 
     public String listAvailableBooks(){
-        String printFormat = "\n";
-        for (Book book : booksInLibrary) {
-            if (!book.isItemCheckedOut()){
-                printFormat += book.bookDetails();
-            }
-        }
-        return printFormat;
+        return bookShelf.listAvailableItems();
+//        String printFormat = "\n";
+//        for (Book book : booksInLibrary) {
+//            if (!book.isItemCheckedOut()){
+//                printFormat += book.itemDetails();
+//            }
+//        }
+//        return printFormat;
     }
 
     public String listAvailableMovies() {
-        String printFormat = "\n";
-        for (Movie movie : moviesInLibrary) {
-            if (!movie.isItemCheckedOut()){
-                printFormat += movie.movieDetails();
-            }
-        }
-        return printFormat;
+        return movieShelf.listAvailableItems();
+//        String printFormat = "\n";
+//        for (Movie movie : moviesInLibrary) {
+//            if (!movie.isItemCheckedOut()){
+//                printFormat += movie.itemDetails();
+//            }
+//        }
+//        return printFormat;
     }
 
     private String messageFromCheckoutBook(String nameBook, User userWhoCheckOutItem) {

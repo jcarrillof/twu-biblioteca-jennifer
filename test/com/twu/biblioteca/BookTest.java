@@ -26,7 +26,7 @@ public class BookTest {
     @Test
     public void shouldReturnStringOfBookDetails(){
         String expected = String.format("%-30s%-30s%-4s\n","Book One", "Author One", 2016);
-        assertEquals(expected, bookOne.bookDetails());
+        assertEquals(expected, bookOne.itemDetails());
     }
 
     @Test
