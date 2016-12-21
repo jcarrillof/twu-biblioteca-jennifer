@@ -20,12 +20,14 @@ public class MenuTest {
     @Test
     public void shouldPrintMenu() {
         String menuString = "\n/***** Menu *****/\n"
+                + MenuOptions.LOG_IN.toString()
                 + MenuOptions.LIST_OF_BOOKS.toString()
                 + MenuOptions.CHECKOUT_BOOK.toString() + MenuOptions.RETURN_BOOK.toString()
                 + MenuOptions.LIST_OF_MOVIES.toString()
                 + MenuOptions.CHECKOUT_MOVIE.toString() + MenuOptions.RETURN_MOVIE.toString()
                 + MenuOptions.USER_INFORMATION.toString()
-                + MenuOptions.RESPONSIBLE_USERS_ITEMS.toString()
+                + MenuOptions.USERS_WHO_CHECKOUT_BOOKS.toString()
+                + MenuOptions.LOG_OUT.toString()
                 + MenuOptions.QUIT.toString()
                 + "\nSelect an option: ";
         PrintStream printStream = mock(PrintStream.class);
@@ -60,12 +62,12 @@ public class MenuTest {
 
     @Test
     public void shouldReturnBookListWhenGivenOptionOne() {
-        int optionFromMenu = 1;
+        int optionFromMenu = 2;
         String nameBook = "";
         Menu menu = new Menu();
         Library library = new Library();
         String booksAvailableExpected = library.listAvailableBooks();
-        assertEquals(booksAvailableExpected, menu.doActionFromOption(optionFromMenu, nameBook, -1));
+        assertEquals(booksAvailableExpected, menu.doActionFromOption(optionFromMenu, nameBook, null));
     }
 
     @Test
@@ -73,7 +75,7 @@ public class MenuTest {
         int optionFromMenu = 0;
         String nameBook = "";
         Menu menu = new Menu();
-        assertEquals("Quit", menu.doActionFromOption(optionFromMenu, nameBook, -1));
+        assertEquals("Quit", menu.doActionFromOption(optionFromMenu, nameBook, null));
     }
 
     @Test
@@ -81,6 +83,6 @@ public class MenuTest {
         int optionFromMenu = 100;
         String nameBook = "";
         Menu menu = new Menu();
-        assertEquals("Action not found!", menu.doActionFromOption(optionFromMenu, nameBook, -1));
+        assertEquals("Action not found!", menu.doActionFromOption(optionFromMenu, nameBook, null));
     }
 }

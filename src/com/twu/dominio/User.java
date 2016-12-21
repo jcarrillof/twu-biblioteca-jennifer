@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.dominio;
 
 public class User {
     private String username;

@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.dominio.User;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -28,18 +30,18 @@ public class Login {
         return credentials;
     }
 
-    public int validCredentials(String username, String password) {
+    public User validCredentials(String username, String password) {
         for (User user:listUsers) {
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-                return listUsers.indexOf(user);
+                return user;
             }
         }
-        return -1;
+        return null;
     }
 
-    public String getUserDetailsIsLoggedIn(int userIndex) {
+    public String getUserDetailsIsLoggedIn(User userLoggedIn) {
         try {
-            return listUsers.get(userIndex).userDetails();
+            return userLoggedIn.userDetails();
         }catch (Exception exception){
             return Messages.LOGIN_REQUIRED.toString();
         }

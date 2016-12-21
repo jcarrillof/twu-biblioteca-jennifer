@@ -12,8 +12,11 @@ public enum Messages {
     UNSUCCESSFUL_RETURN_MOVIE("That is not a valid movie to return"),
     NOT_FOUND_ACTION_IN_MAP("Action not found!"),
     ASK_NAME_OF_ITEM("Name of item: "),
-    LOGIN_REQUIRED("You must be logged in or your credentials are not valid"),
-    CREDENTIALS_NOT_VALID("Credentials are not valid");
+    LOGIN_REQUIRED("You must be logged in"),
+    CREDENTIALS_NOT_VALID("Credentials are not valid"),
+    CREDENTIALS_VALID("You are now logged in"),
+    SESSION_ACTIVE("You are already logged in or change to another user account"),
+    SESSION_INACTIVE("There is no active session");
 
     private final String text;
 

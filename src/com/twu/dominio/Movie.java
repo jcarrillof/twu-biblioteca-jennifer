@@ -1,6 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.dominio;
 
-public class Movie extends Item{
+import com.twu.biblioteca.Item;
+
+public class Movie extends Item {
 
     private String name;
     private int year;

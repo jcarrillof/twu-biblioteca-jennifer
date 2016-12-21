@@ -2,14 +2,16 @@ package com.twu.biblioteca;
 
 public enum MenuOptions {
 
-    LIST_OF_BOOKS(1, "List of books"),
-    CHECKOUT_BOOK(2, "Checkout a book"),
-    RETURN_BOOK(3, "Return a book"),
-    LIST_OF_MOVIES(4, "List of movies"),
-    CHECKOUT_MOVIE(5, "Checkout a movie"),
-    RETURN_MOVIE(6, "Return a movie"),
-    USER_INFORMATION(7, "User information"),
-    RESPONSIBLE_USERS_ITEMS(8, "Users who checked out books"),
+    LOG_IN(1, "Log In"),
+    LIST_OF_BOOKS(2, "List of books"),
+    CHECKOUT_BOOK(3, "Checkout a book"),
+    RETURN_BOOK(4, "Return a book"),
+    LIST_OF_MOVIES(5, "List of movies"),
+    CHECKOUT_MOVIE(6, "Checkout a movie"),
+    RETURN_MOVIE(7, "Return a movie"),
+    USER_INFORMATION(8, "User information"),
+    USERS_WHO_CHECKOUT_BOOKS(9, "Users who checked out books"),
+    LOG_OUT(10, "Log Out"),
     QUIT(0, "Quit"),
     NOT_VALID_OPTION(-1, "Select a valid option!");
 

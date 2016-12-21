@@ -1,5 +1,9 @@
 package com.twu.biblioteca;
 
+import com.twu.dominio.Book;
+import com.twu.dominio.Movie;
+import com.twu.dominio.User;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -49,8 +53,8 @@ public class Library{
         return printFormat;
     }
 
-    private String messageFromCheckoutBook(String nameBook, String userResponsible) {
-        Book bookResult = changeBookStatusWhenCheckout(nameBook, userResponsible);
+    private String messageFromCheckoutBook(String nameBook, User userWhoCheckOutItem) {
+        Book bookResult = changeBookStatusWhenCheckout(nameBook, userWhoCheckOutItem);
         if (bookResult != null && bookResult.isItemCheckedOut()){
             return Messages.SUCCESSFUL_CHECKOUT_BOOK.toString();
         }
@@ -65,10 +69,10 @@ public class Library{
         return Messages.UNSUCCESSFUL_CHECKOUT_MOVIE.toString();
     }
 
-    private Book changeBookStatusWhenCheckout(String nameBook, String userResponsible) {
+    private Book changeBookStatusWhenCheckout(String nameBook, User userWhoCheckOutItem) {
         for (Book book : booksInLibrary) {
             if(book.getName().equals(nameBook) && !book.isItemCheckedOut()){
-                book.setItemCheckedOut(true, userResponsible);
+                book.setItemCheckedOut(true, userWhoCheckOutItem.getName());
                 return book;
             }
         }
@@ -121,8 +125,8 @@ public class Library{
         return null;
     }
 
-    public String checkoutBook(String nameBook, String userResponsible) {
-        return messageFromCheckoutBook(nameBook, userResponsible);
+    public String checkoutBook(String nameBook, User userWhoCheckOutItem) {
+        return messageFromCheckoutBook(nameBook, userWhoCheckOutItem);
     }
 
     public String checkoutMovie(String nameMovie) {

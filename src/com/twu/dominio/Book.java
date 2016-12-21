@@ -1,13 +1,15 @@
-package com.twu.biblioteca;
+package com.twu.dominio;
 
-public class Book extends Item{
+import com.twu.biblioteca.Item;
+
+public class Book extends Item {
 
     private String name;
     private String author;
     private int yearPublished;
     private boolean bookIsCheckedOut;
 
-    Book(String name, String author, int yearPublished) {
+    public Book(String name, String author, int yearPublished) {
         this.name = name;
         this.author = author;
         this.yearPublished = yearPublished;

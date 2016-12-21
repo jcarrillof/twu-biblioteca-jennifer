@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.dominio.Book;
+import com.twu.dominio.Movie;
+import com.twu.dominio.User;
 import org.junit.Test;
 
 import java.util.List;
@@ -9,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class LibraryTest {
 
     private Library library = new Library();
+    private User user = new User("001-0010", "user_pass", "Jennifer", "jen@gmail.com", "0985357367");
 
     @Test
     public void shouldReturnStringOfListOfBooksAvailable() {
@@ -37,14 +41,14 @@ public class LibraryTest {
     @Test
     public void shouldReturnMessageWhenBookExistsAndIsAvailable() {
         String nameBook = library.booksInLibrary.get(0).getName();
-        String messageWhenCheckoutBook = library.checkoutBook(nameBook, "Responsible 1");
+        String messageWhenCheckoutBook = library.checkoutBook(nameBook, user);
         assertEquals("Thank you! Enjoy the book", messageWhenCheckoutBook);
     }
 
     @Test
     public void shouldReturnMessageWhenBookDoesNotExist(){
         String nameBook = "Book Five";
-        String messageWhenCheckoutBook = library.checkoutBook(nameBook, "Responsible 1");
+        String messageWhenCheckoutBook = library.checkoutBook(nameBook, user);
         assertEquals("That book is not available", messageWhenCheckoutBook);
     }
 
@@ -53,7 +57,7 @@ public class LibraryTest {
         Book book = library.booksInLibrary.get(1);
         book.setItemCheckedOut(true, "New user");
         String nameBook = book.getName();
-        String messageWhenCheckoutBook = library.checkoutBook(nameBook, "Responsible 1");
+        String messageWhenCheckoutBook = library.checkoutBook(nameBook, user);
         assertEquals("That book is not available", messageWhenCheckoutBook);
     }
 
@@ -111,7 +115,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnStringOfCheckedOutBooksWithResponsible() {
         List<Book> listBooks = library.booksInLibrary;
-        library.checkoutBook(listBooks.get(0).getName(), "Responsible 1");
+        library.checkoutBook(listBooks.get(0).getName(), user);
         String expected = "\n";
         for (Book book : listBooks) {
             if (book.isItemCheckedOut()){
