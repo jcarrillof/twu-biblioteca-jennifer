@@ -26,18 +26,6 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnStringOfListOfMoviesAvailable() {
-        List<Item> listMovies = library.movieShelf.itemsInShelf;
-        String expected = "\n";
-        for (Item movie : listMovies) {
-            if (!movie.isItemCheckedOut()){
-                expected += movie.itemDetails();
-            }
-        }
-        assertEquals(expected, library.listAvailableMovies());
-    }
-
-    @Test
     public void shouldReturnMessageWhenBookExistsAndIsAvailable() {
         String nameBook = library.bookShelf.itemsInShelf.get(0).getName();
         String messageWhenCheckoutBook = library.checkoutBook(nameBook, user);

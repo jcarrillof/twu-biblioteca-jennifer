@@ -8,14 +8,14 @@ public class LoginTest {
     private Login login = new Login();
 
     @Test
-    public void shouldReturnTrueWhenCredentialsAreValid() {
+    public void shouldReturnUserWhenCredentialsAreValid() {
         String username = login.listUsers.get(0).getUsername();
         String password = login.listUsers.get(0).getPassword();
         assertEquals(login.listUsers.get(0), login.validCredentials(username, password));
     }
 
     @Test
-    public void shouldReturnFalseWhenCredentialsAreNotValid() {
+    public void shouldReturnNullWhenCredentialsAreNotValid() {
         String username = "001-0001";
         String password = "password";
         assertEquals(null, login.validCredentials(username, password));
