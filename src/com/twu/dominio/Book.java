@@ -16,6 +16,7 @@ public class Book extends Item {
         setItemCheckedOut(false, null);
     }
 
+    @Override
     public String getName() {
         return name;
     }

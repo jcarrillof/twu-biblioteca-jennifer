@@ -26,6 +26,7 @@ public class Movie extends Item {
         setItemCheckedOut(false, null);
     }
 
+    @Override
     public String getName() {
         return name;
     }
