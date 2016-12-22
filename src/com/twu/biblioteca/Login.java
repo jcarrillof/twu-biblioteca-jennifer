@@ -47,4 +47,33 @@ public class Login {
             return Messages.LOGIN_REQUIRED.toString();
         }
     }
+
+    public String loginUser(User userWhoLogIn) {
+        try {
+            if(userWhoLogIn.isUserLogin()){
+                return Messages.SESSION_ACTIVE.toString();
+            }
+            userWhoLogIn.setUserLogin(true);
+            return Messages.CREDENTIALS_VALID.toString();
+        }catch (Exception exception){
+            return Messages.CREDENTIALS_NOT_VALID.toString();
+        }
+    }
+
+    public String logoutUser(User userWhoLogIn) {
+        try {
+            userWhoLogIn.setUserLogin(false);
+            return Messages.USER_LOGOUT.toString();
+        }catch (Exception exception){
+            return Messages.SESSION_INACTIVE.toString();
+        }
+    }
+
+    public boolean isActiveSession(User userWhoCheckOutItemWhenNeeded) {
+        try {
+            return userWhoCheckOutItemWhenNeeded.isUserLogin();
+        }catch (Exception exception){
+            return false;
+        }
+    }
 }

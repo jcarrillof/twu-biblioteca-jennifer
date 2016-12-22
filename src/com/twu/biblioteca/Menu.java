@@ -100,15 +100,7 @@ public class Menu {
         actionsFromOptions.put(MenuOptions.LOG_IN.numberOption(), new ActionFromMenuGivenOption() {
             @Override
             public String executeAction(String nameItem, User userWhoLogIn) {
-                try {
-                    if(userWhoLogIn.isUserLogin()){
-                        return Messages.SESSION_ACTIVE.toString();
-                    }
-                    userWhoLogIn.setUserLogin(true);
-                    return Messages.CREDENTIALS_VALID.toString();
-                }catch (Exception exception){
-                    return Messages.CREDENTIALS_NOT_VALID.toString();
-                }
+                return login.loginUser(userWhoLogIn);
             }
         });
         actionsFromOptions.put(MenuOptions.LIST_OF_BOOKS.numberOption(), new ActionFromMenuGivenOption() {
@@ -120,27 +112,19 @@ public class Menu {
         actionsFromOptions.put(MenuOptions.CHECKOUT_BOOK.numberOption(), new ActionFromMenuGivenOption() {
             @Override
             public String executeAction(String nameBook, User userWhoCheckOutItemWhenNeeded) {
-                try {
-                    if(userWhoCheckOutItemWhenNeeded.isUserLogin()){
-                        return library.checkoutBook(nameBook, userWhoCheckOutItemWhenNeeded);
-                    }
-                    return Messages.LOGIN_REQUIRED.toString();
-                }catch (Exception exception){
-                    return Messages.LOGIN_REQUIRED.toString();
+                if(login.isActiveSession(userWhoCheckOutItemWhenNeeded)){
+                    return library.checkoutBook(nameBook, userWhoCheckOutItemWhenNeeded);
                 }
+                return Messages.LOGIN_REQUIRED.toString();
             }
         });
         actionsFromOptions.put(MenuOptions.RETURN_BOOK.numberOption(), new ActionFromMenuGivenOption() {
             @Override
             public String executeAction(String nameBook, User userWhoCheckOutItemWhenNeeded) {
-                try {
-                    if(userWhoCheckOutItemWhenNeeded.isUserLogin()){
-                        return library.returnBook(nameBook);
-                    }
-                    return Messages.LOGIN_REQUIRED.toString();
-                }catch (Exception exception){
-                    return Messages.LOGIN_REQUIRED.toString();
+                if(login.isActiveSession(userWhoCheckOutItemWhenNeeded)){
+                    return library.returnBook(nameBook);
                 }
+                return Messages.LOGIN_REQUIRED.toString();
             }
         });
         actionsFromOptions.put(MenuOptions.LIST_OF_MOVIES.numberOption(), new ActionFromMenuGivenOption() {
@@ -164,14 +148,10 @@ public class Menu {
         actionsFromOptions.put(MenuOptions.USER_INFORMATION.numberOption(), new ActionFromMenuGivenOption() {
             @Override
             public String executeAction(String nameMovie, User userLoggedIn) {
-                try {
-                    if(userLoggedIn.isUserLogin()){
-                        return login.getUserDetailsIsLoggedIn(userLoggedIn);
-                    }
-                    return Messages.LOGIN_REQUIRED.toString();
-                }catch (Exception exception){
-                    return Messages.LOGIN_REQUIRED.toString();
+                if(login.isActiveSession(userLoggedIn)){
+                    return login.getUserDetailsIsLoggedIn(userLoggedIn);
                 }
+                return Messages.LOGIN_REQUIRED.toString();
             }
         });
         actionsFromOptions.put(MenuOptions.USERS_WHO_CHECKOUT_BOOKS.numberOption(), new ActionFromMenuGivenOption() {
@@ -183,15 +163,7 @@ public class Menu {
         actionsFromOptions.put(MenuOptions.LOG_OUT.numberOption(), new ActionFromMenuGivenOption() {
             @Override
             public String executeAction(String nameItem, User userWhoLogIn) {
-                try {
-                    userWhoLogIn.setUserLogin(false);
-                    if(!userWhoLogIn.isUserLogin()){
-                        return Messages.USER_LOGOUT.toString();
-                    }
-                    return "Error when try to log out";
-                }catch (Exception exception){
-                    return Messages.SESSION_INACTIVE.toString();
-                }
+                return login.logoutUser(userWhoLogIn);
             }
         });
         actionsFromOptions.put(MenuOptions.QUIT.numberOption(), new ActionFromMenuGivenOption() {
