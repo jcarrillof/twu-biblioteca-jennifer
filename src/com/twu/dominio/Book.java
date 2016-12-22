@@ -43,9 +43,9 @@ public class Book extends Item {
     public void setItemCheckedOut(boolean bookIsCheckedOut, String userResponsible) {
         this.bookIsCheckedOut = bookIsCheckedOut;
         if (!bookIsCheckedOut){
-            setResponsibleUser(null);
+            setUserWhoCheckedOut(null);
         }else {
-            setResponsibleUser(userResponsible);
+            setUserWhoCheckedOut(userResponsible);
         }
     }
 }

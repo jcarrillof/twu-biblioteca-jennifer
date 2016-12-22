@@ -38,7 +38,8 @@ public class User {
     }
 
     public String userDetails() {
-        return "Name: " + getName() + "\n"
+        return "\n"
+                + "Name: " + getName() + "\n"
                 + "Email: " + getEmail() + "\n"
                 + "Phone number: " + getPhoneNumber() + "\n";
     }

@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.dominio.Book;
-import com.twu.dominio.Movie;
 import com.twu.dominio.User;
 import org.junit.Test;
 
@@ -119,7 +117,7 @@ public class LibraryTest {
         String expected = "\n";
         for (Item book : listBooks) {
             if (book.isItemCheckedOut()){
-                expected += book.getResponsibleUser() + " -- " + book.getName() + "\n";
+                expected += book.getUserWhoCheckedOut() + " -- " + book.getName() + "\n";
             }
         }
         assertEquals(expected, library.listCheckedOutItems());
@@ -130,6 +128,6 @@ public class LibraryTest {
         List<Item> listBooks = library.bookShelf.itemsInShelf;
         library.returnBook(listBooks.get(0).getName());
         Item bookTest = listBooks.get(0);
-        assertEquals(null, bookTest.getResponsibleUser());
+        assertEquals(null, bookTest.getUserWhoCheckedOut());
     }
 }

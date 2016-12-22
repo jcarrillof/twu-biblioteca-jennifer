@@ -49,12 +49,12 @@ public class BookTest {
     @Test
     public void shouldReturnUserNullWhenBookIsReturn() {
         bookOne.setItemCheckedOut(false, null);
-        assertEquals(null, bookOne.getResponsibleUser());
+        assertEquals(null, bookOne.getUserWhoCheckedOut());
     }
 
     @Test
     public void shouldReturnUserNameWhenBookIsCheckedOut() {
         bookOne.setItemCheckedOut(true, "New user");
-        assertEquals("New user", bookOne.getResponsibleUser());
+        assertEquals("New user", bookOne.getUserWhoCheckedOut());
     }
 }

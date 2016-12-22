@@ -40,7 +40,7 @@ public class UserTest {
 
     @Test
     public void shouldReturnUserInformation() {
-        String expected = "Name: " + user.getName() + "\n"
+        String expected = "\nName: " + user.getName() + "\n"
                 + "Email: " + user.getEmail() + "\n"
                 + "Phone number: " + user.getPhoneNumber() + "\n";
 

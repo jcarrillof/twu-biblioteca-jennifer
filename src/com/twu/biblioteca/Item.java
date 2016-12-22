@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 public abstract class Item {
 
-    private String userResponsible;
+    private String userWhoCheckedOut;
 
     public abstract String getName();
 
@@ -12,11 +12,11 @@ public abstract class Item {
 
     public abstract boolean isItemCheckedOut();
 
-    public void setResponsibleUser(String userResponsible){
-        this.userResponsible = userResponsible;
+    public void setUserWhoCheckedOut(String userWhoCheckedOut){
+        this.userWhoCheckedOut = userWhoCheckedOut;
     }
 
-    public String getResponsibleUser() {
-        return userResponsible;
+    public String getUserWhoCheckedOut() {
+        return userWhoCheckedOut;
     }
 }
