@@ -6,6 +6,7 @@ public class Book extends Item {
     private String author;
     private int yearPublished;
     private boolean bookIsCheckedOut;
+    private String userWhoCheckedOut;
 
     public Book(String name, String author, int yearPublished) {
         this.name = name;
@@ -45,5 +46,13 @@ public class Book extends Item {
         }else {
             setUserWhoCheckedOut(userResponsible);
         }
+    }
+
+    public void setUserWhoCheckedOut(String userWhoCheckedOut){
+        this.userWhoCheckedOut = userWhoCheckedOut;
+    }
+
+    public String getUserWhoCheckedOut() {
+        return userWhoCheckedOut;
     }
 }

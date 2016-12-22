@@ -1,6 +1,5 @@
 package com.twu.domain;
 
-import com.twu.domain.Movie;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

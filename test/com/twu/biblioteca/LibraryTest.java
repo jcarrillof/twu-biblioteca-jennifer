@@ -1,12 +1,13 @@
 package com.twu.biblioteca;
 
+import com.twu.domain.Book;
 import com.twu.domain.Item;
 import com.twu.domain.User;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class LibraryTest {
 
@@ -106,7 +107,8 @@ public class LibraryTest {
         String expected = "\n";
         for (Item book : listBooks) {
             if (book.isItemCheckedOut()){
-                expected += book.getUserWhoCheckedOut() + " -- " + book.getName() + "\n";
+                Book bookItem = (Book) book;
+                expected += bookItem.getUserWhoCheckedOut() + " -- " + book.getName() + "\n";
             }
         }
         assertEquals(expected, library.listCheckedOutItems());
@@ -116,7 +118,7 @@ public class LibraryTest {
     public void shouldReturnNullUserWhenBookReturn() {
         List<Item> listBooks = library.bookShelf.itemsInShelf;
         library.returnBook(listBooks.get(0).getName());
-        Item bookTest = listBooks.get(0);
+        Book bookTest = (Book) listBooks.get(0);
         assertEquals(null, bookTest.getUserWhoCheckedOut());
     }
 }

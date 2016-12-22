@@ -1,6 +1,5 @@
 package com.twu.domain;
 
-import com.twu.domain.Book;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -56,5 +55,12 @@ public class BookTest {
     public void shouldReturnUserNameWhenBookIsCheckedOut() {
         bookOne.setItemCheckedOut(true, "New user");
         assertEquals("New user", bookOne.getUserWhoCheckedOut());
+    }
+
+    @Test
+    public void shouldReturnUserWhenCheckoutItem() {
+        Book book = new Book("New book", "New author", 2016);
+        book.setUserWhoCheckedOut("New user");
+        assertEquals("New user", book.getUserWhoCheckedOut());
     }
 }

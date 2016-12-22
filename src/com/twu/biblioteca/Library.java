@@ -60,7 +60,8 @@ public class Library{
         String printFormat = "\n";
         for (Item book : bookShelf.itemsInShelf) {
             if (book.isItemCheckedOut()){
-                printFormat += book.getUserWhoCheckedOut() + " -- " + book.getName() + "\n";
+                Book bookItem = (Book) book;
+                printFormat += bookItem.getUserWhoCheckedOut() + " -- " + book.getName() + "\n";
             }
         }
         return printFormat;

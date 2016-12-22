@@ -1,13 +1,13 @@
 package com.twu.biblioteca;
 
 import com.twu.resources.MenuOptions;
-import org.junit.Test;
 
+import org.junit.Test;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 

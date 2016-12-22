@@ -1,6 +1,5 @@
 package com.twu.domain;
 
-import com.twu.domain.*;
 import org.junit.Test;
 import java.util.List;
 import static org.junit.Assert.*;
