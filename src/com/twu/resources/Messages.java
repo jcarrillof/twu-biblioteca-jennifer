@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.resources;
 
 public enum Messages {
 
@@ -13,7 +13,8 @@ public enum Messages {
     CREDENTIALS_NOT_VALID("Credentials are not valid"),
     CREDENTIALS_VALID("You are now logged in"),
     SESSION_ACTIVE("You are already logged in or change to another user account"),
-    SESSION_INACTIVE("There is no active session");
+    SESSION_INACTIVE("There is no active session"),
+    USER_LOGOUT("You logged out");
 
     private final String text;
 

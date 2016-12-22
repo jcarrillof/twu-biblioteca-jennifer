@@ -1,4 +1,4 @@
-package com.twu.dominio;
+package com.twu.domain;
 
 public class User {
     private String username;

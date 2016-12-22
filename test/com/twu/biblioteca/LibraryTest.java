@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
-import com.twu.dominio.User;
+import com.twu.domain.Item;
+import com.twu.domain.User;
 import org.junit.Test;
 
 import java.util.List;

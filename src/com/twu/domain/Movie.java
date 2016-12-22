@@ -1,6 +1,4 @@
-package com.twu.dominio;
-
-import com.twu.biblioteca.Item;
+package com.twu.domain;
 
 public class Movie extends Item {
 
@@ -11,11 +9,8 @@ public class Movie extends Item {
     private boolean movieIsCheckedOut;
 
     public Movie(String name, int year, String director, int rating) {
-        this.name = name;
-        this.year = year;
-        this.director = director;
+        this(name, year, director);
         this.rating = validateRating(rating);
-        setItemCheckedOut(false, null);
     }
 
     public Movie(String name, int year, String director) {

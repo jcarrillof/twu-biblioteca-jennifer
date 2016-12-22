@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
-import com.twu.dominio.User;
+import com.twu.resources.Messages;
+import com.twu.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,4 @@
-package com.twu.dominio;
-
-import com.twu.biblioteca.Item;
+package com.twu.domain;
 
 public class Book extends Item {
 

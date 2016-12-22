@@ -1,8 +1,7 @@
 package com.twu.biblioteca;
 
-import com.twu.dominio.Book;
-import com.twu.dominio.Movie;
-import com.twu.dominio.User;
+import com.twu.domain.*;
+import com.twu.resources.MenuOptions;
 
 public class Library{
 

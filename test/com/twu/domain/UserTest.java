@@ -1,6 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.domain;
 
-import com.twu.dominio.User;
+import com.twu.domain.User;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

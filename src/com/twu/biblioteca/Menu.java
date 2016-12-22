@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
-import com.twu.dominio.User;
+import com.twu.resources.MenuOptions;
+import com.twu.resources.Messages;
+import com.twu.domain.User;
 
 import java.io.PrintStream;
 import java.util.HashMap;
@@ -99,11 +101,11 @@ public class Menu {
             @Override
             public String executeAction(String nameItem, User userWhoLogIn) {
                 try {
-                    userWhoLogIn.setUserLogin(true);
                     if(userWhoLogIn.isUserLogin()){
-                        return Messages.CREDENTIALS_VALID.toString();
+                        return Messages.SESSION_ACTIVE.toString();
                     }
-                    return Messages.SESSION_ACTIVE.toString();
+                    userWhoLogIn.setUserLogin(true);
+                    return Messages.CREDENTIALS_VALID.toString();
                 }catch (Exception exception){
                     return Messages.CREDENTIALS_NOT_VALID.toString();
                 }
@@ -162,10 +164,14 @@ public class Menu {
         actionsFromOptions.put(MenuOptions.USER_INFORMATION.numberOption(), new ActionFromMenuGivenOption() {
             @Override
             public String executeAction(String nameMovie, User userLoggedIn) {
-                if(userLoggedIn.isUserLogin()){
-                    return login.getUserDetailsIsLoggedIn(userLoggedIn);
+                try {
+                    if(userLoggedIn.isUserLogin()){
+                        return login.getUserDetailsIsLoggedIn(userLoggedIn);
+                    }
+                    return Messages.LOGIN_REQUIRED.toString();
+                }catch (Exception exception){
+                    return Messages.LOGIN_REQUIRED.toString();
                 }
-                return Messages.LOGIN_REQUIRED.toString();
             }
         });
         actionsFromOptions.put(MenuOptions.USERS_WHO_CHECKOUT_BOOKS.numberOption(), new ActionFromMenuGivenOption() {
@@ -180,7 +186,7 @@ public class Menu {
                 try {
                     userWhoLogIn.setUserLogin(false);
                     if(!userWhoLogIn.isUserLogin()){
-                        return "You logged out";
+                        return Messages.USER_LOGOUT.toString();
                     }
                     return "Error when try to log out";
                 }catch (Exception exception){

@@ -1,8 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.domain;
 
-import com.twu.dominio.Book;
-import com.twu.dominio.Movie;
-import com.twu.dominio.User;
+import com.twu.domain.*;
 import org.junit.Test;
 import java.util.List;
 import static org.junit.Assert.*;

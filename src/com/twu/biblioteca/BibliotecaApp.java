@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
-import com.twu.dominio.User;
+import com.twu.resources.MenuOptions;
+import com.twu.domain.User;
 
 import java.util.List;
 
@@ -32,11 +33,12 @@ public class BibliotecaApp {
             }else if (optionNumber == MenuOptions.CHECKOUT_MOVIE.numberOption()
                     || optionNumber == MenuOptions.RETURN_MOVIE.numberOption()){
                 nameItem = menu.getNameItemFromInput();
-            }else if(optionNumber == MenuOptions.LOG_OUT.numberOption()){
+            }
+            resultFromAction = menu.doActionFromOption(optionNumber, nameItem, loggedUser);
+
+            if(optionNumber == MenuOptions.LOG_OUT.numberOption()){
                 loggedUser = null;
             }
-
-            resultFromAction = menu.doActionFromOption(optionNumber, nameItem, loggedUser);
             System.out.println(resultFromAction);
         }while (!resultFromAction.equals(MenuOptions.QUIT.nameOption()));
     }

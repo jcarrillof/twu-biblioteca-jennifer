@@ -1,8 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.domain;
 
-import com.twu.dominio.Book;
-import com.twu.dominio.Movie;
-import com.twu.dominio.User;
+import com.twu.resources.Messages;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +22,6 @@ public class Shelf<T> {
     public void add(T item) {
         itemsInShelf.add((Item) item);
     }
-
 
     public String checkoutItem(String nameItem, User userWhoCheckOutItemWhenNeeded) {
         return messageFromCheckoutItem(nameItem, userWhoCheckOutItemWhenNeeded);
