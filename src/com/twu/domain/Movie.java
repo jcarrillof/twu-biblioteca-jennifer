@@ -1,6 +1,6 @@
 package com.twu.domain;
 
-public class Movie extends Item {
+public class Movie implements Item {
 
     private String name;
     private int year;

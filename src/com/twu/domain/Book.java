@@ -1,6 +1,6 @@
 package com.twu.domain;
 
-public class Book extends Item {
+public class Book implements Item {
 
     private String name;
     private String author;

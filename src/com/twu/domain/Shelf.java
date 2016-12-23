@@ -5,7 +5,7 @@ import com.twu.resources.Messages;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shelf<T> {
+public class Shelf<T extends Item> {
 
     public List<Item> itemsInShelf = new ArrayList<>();
 
